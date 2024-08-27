@@ -1,7 +1,10 @@
+
 import { Sequelize } from "sequelize";
-import { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } from "./src/config/envs.js";
-// import Students from "./src/models/Students.js";
-// import Historials from "./src/models/Historials.js";
+// import { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } from "./src/config/envs.js";
+const DB_USER = 'no_country'
+const DB_PASSWORD = 'admin123'
+const DB_HOST = 'localhost'
+const DB_NAME = "my_store"
 
 export const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
@@ -11,8 +14,7 @@ export const sequelize = new Sequelize(
   }
 );
 
-// Relación Users <-> Cart (uno a uno)
-// Students.hasOne(Historials);
-// Historials.belongsTo(Students);
 
 export default sequelize;
+
+
