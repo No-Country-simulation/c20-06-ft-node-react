@@ -1,11 +1,10 @@
 "use client";
-
-import { usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 const Servicio = () => {
-  const path = usePathname().split("/")[2];
+  const { service } = useParams();
 
-  return <div>Service: {path}</div>;
+  return <div>Service: {service}</div>;
 };
 
 export default Servicio;

@@ -9,7 +9,10 @@
       ],
       "@/assets/*": [
         "./src/assets/*"
-      ]
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ],
     }
   }
 }
