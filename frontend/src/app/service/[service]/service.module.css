@@ -1,0 +1,31 @@
+.workersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: var(--backgorund-color);
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--backgorund-color);
+  color: var(--text-color);
+}
+
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--backgorund-color);
+  color: var(--text-color);
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+}

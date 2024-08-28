@@ -7,6 +7,7 @@ const Landing = () => {
   const [step, setStep] = useState(1)
   const [services, setServices] = useState([])
   const [categories, setCategories] = useState([])
+  const [cities, setCities] = useState([])
   const [search, setSearch] = useState({ city: '', category: '' })
 
   useEffect(() => {
@@ -17,6 +18,10 @@ const Landing = () => {
     fetch('/api/services')
       .then(res => res.json())
       .then(data => setServices(data.services))
+
+    fetch('/api/cities')
+      .then(res => res.json())
+      .then(data => setCities(data.cities))
   }, [])
 
   const Step1 = (search, setSearch) => {
@@ -40,18 +45,22 @@ const Landing = () => {
         El mejor lugar para encontar ayuda en los servicios que necesites!
 
         <label htmlFor="city">Ciudad:</label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          value={search.city}
-          onChange={handleCityChange}
-        />
+        <select name="city" id="city" value={search.city} onChange={handleCityChange}>
+          <option value="">Todos</option>
+          {
+            cities && cities.map(city => (
+              <option key={city.id} value={city.city}>
+                {city.city}
+              </option>
+            ))
+          }
+        </select>
 
         <label htmlFor="category">Categoria:</label>
         <select name="category" id="category" value={search.category} onChange={handleCategoryChange}>
+          <option value="">Todos</option>
           {
-            categories.map(category => (
+            categories && categories.map(category => (
               <option key={category.id} value={category.name}>
                 {category.name}
               </option>
@@ -60,7 +69,6 @@ const Landing = () => {
         </select>
 
         <button className={styles.button} onClick={() => setStep(step + 1)}>Siguiente</button>
-        <p>ciudad: {search.city}, categoria: {search.category}</p>
       </main>
     )
   }
@@ -72,7 +80,7 @@ const Landing = () => {
         <div className={styles.servicesContainer}>
           {
             services.map(service => (
-              <ServiceCard key={service.id} service={service} query={search}/>
+              <ServiceCard key={service.id} service={service} query={search} />
             ))
           }
         </div>
