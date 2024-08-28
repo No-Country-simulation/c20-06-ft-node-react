@@ -1,3 +1,3 @@
-export { default as Header } from './header.jsx'
-export { default as Footer } from './footer.jsx'
-export { default as CategoryCard } from './categoryCard.jsx'
+export { default as Header } from './header/header.jsx'
+export { default as Footer } from './footer/footer.jsx'
+export { default as ServiceCard } from './ServiceCard/ServiceCard.jsx'
