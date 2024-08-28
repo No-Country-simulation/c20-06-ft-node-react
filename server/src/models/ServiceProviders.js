@@ -59,5 +59,3 @@ Service.hasMany(ServiceProvider, {
 ServiceProvider.belongsTo(Service, {
   foreignKey: 'serviceId',
 });
-
-export default ServiceProvider
