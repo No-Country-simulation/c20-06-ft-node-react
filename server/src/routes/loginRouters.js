@@ -1,5 +1,6 @@
 import express from "express";
+import { loginHandlers } from "../handlers/loginHandlers.js";
 
-const routerLogin = express.Router();
-
-export default routerLogin;
+const loginRouters = express.Router();
+loginRouters.post("/login", loginHandlers);
+export default loginRouters;
