@@ -1,4 +1,3 @@
-
 import { Sequelize } from "sequelize";
 // import { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } from "./src/config/envs.js";
 const DB_USER = 'no_country'
@@ -14,7 +13,4 @@ export const sequelize = new Sequelize(
   }
 );
 
-
 export default sequelize;
-
-
