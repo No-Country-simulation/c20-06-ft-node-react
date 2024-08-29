@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { WorkerCard, Sidebar } from '@/components'
 
 import styles from './service.module.css'
-import Link from 'next/link';
 
 const Servicio = () => {
   const [worker, setWorker] = useState([]);
@@ -31,8 +30,8 @@ const Servicio = () => {
 
   return (
     <div className={styles.container}>
-      <Sidebar services={services} categories={categories} city={city}/>
-      <main>
+      <Sidebar services={services} categories={categories} city={city} />
+      <main className={styles.main}>
         Resultados para servicios de {service} en {city}
         <div className={styles.workersContainer}>
           {

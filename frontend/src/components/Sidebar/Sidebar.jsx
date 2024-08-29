@@ -30,10 +30,11 @@ const Sidebar = ({ categories, services, city }) => {
               {activeCategory === category.id && (
                 <ul>
                   {services
+                    .filter(service => service.categories.includes(category.name))
                     .map(service => (
                       <li key={service.id}>
                         <Link href={`/service${service.to}?city=${city}`}>
-                        {service.name}
+                          {service.name}
                         </Link>
                       </li>
                     ))}
