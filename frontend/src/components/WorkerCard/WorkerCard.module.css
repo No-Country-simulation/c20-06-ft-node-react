@@ -1,0 +1,28 @@
+.workerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  justify-content: center;
+  width: 250px;
+  height: 150px;
+  border: 1px, solid, rgb(255, 255, 255);
+  gap: 10px;
+  border-radius: 15px;
+  background-color: #222121;
+  color: white;
+  cursor: pointer;
+
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #3a3a3a;
+    transition: 0.5s;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px white;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
