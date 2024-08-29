@@ -17,7 +17,6 @@ export async function getUserById(id) {
         if (!user) {
             throw new Error("User not found");
         }
-        console.log(user);
         return user;
     } catch (error) {
         console.log(error.message);
@@ -32,7 +31,7 @@ export async function createNewUser(username, email, password, role){
         console.log(data);
         return data
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.em);
         throw new Error("Error creating user")
     }
 }

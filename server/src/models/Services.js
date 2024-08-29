@@ -33,14 +33,6 @@ export const Service = sequelize.define(
         },
       },
     },
-    price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-      validate: {
-        isDecimal: { msg: "El precio debe ser un número válido" },
-        min: { args: [0], msg: "El precio no puede ser negativo" },
-      },
-    },
     category: {
       type: DataTypes.ENUM("Diseño", "Desarrollo", "Marketing", "Otros"),
       allowNull: false,
