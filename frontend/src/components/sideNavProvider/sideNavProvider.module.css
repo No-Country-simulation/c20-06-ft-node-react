@@ -1,0 +1,84 @@
+.sidenav {
+  background-color: #F8F8F8;
+  color: #333;
+  padding: 10px;
+  transition: left 0.3s ease;
+  box-shadow: 5px 0px 6px rgba(121, 121, 121, 0.3);
+}
+
+.sidenavOpen {
+  width: 20vw;
+}
+
+.sidenavClose {
+  width: 5vw;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 9rem 0;
+}
+
+.profile div {
+  height: 8rem;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D9D9D9;
+  font-size: 3rem;
+  font-weight: 700;
+  border-radius: 15rem;
+}
+
+.profile p {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.sidebarContainer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  left: -200px;
+  transition: left 0.3s ease;
+}
+
+.visible {
+  left: 0;
+}
+
+.toggleButton {
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+}
+
+.li {
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+}
+
+.li:hover {
+  background-color: #444;
+}
