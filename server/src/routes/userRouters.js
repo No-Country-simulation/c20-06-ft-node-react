@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { getUsers, createUser } from "../handlers/userHandlers.js";
+import { getAllUsers, createUser, getUser, updateUser, deleteUser } from "../handlers/userHandlers.js";
 
 export const userRouter = Router();
 
 
-userRouter.get("/", getUsers )
-
-userRouter.post("/", createUser)
+userRouter.get("/", getAllUsers);
+userRouter.get("/:id", getUser);
+userRouter.post("/", createUser);
+userRouter.put("/:id", updateUser);
+userRouter.delete("/:id", deleteUser);
