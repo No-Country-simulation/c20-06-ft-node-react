@@ -1,40 +1,104 @@
-import styles from "./page.module.css";
-import { CategoryCard } from "@/components";
+"use client"
+import { useState, useEffect } from 'react'
+import { ServiceCard, Button } from '@/components'
+import styles from './page.module.css'
 
-export default function Home() {
-  const categories = [
-    { id: 1, name: "⚡ Electricista", to: "/electricista" },
-    { id: 2, name: "🔨 Plomero", to: "/plomero" },
-    { id: 3, name: "🪵 Carpintero", to: "/carpintero" },
-    { id: 4, name: "🔧 Mecánico", to: "/mecanico" },
-    { id: 5, name: "🎨 Pintor", to: "/pintor" },
-    { id: 6, name: "🛠️ Albañil", to: "/albanil" },
-    { id: 7, name: "🧹 Limpiador", to: "/limpiador" },
-    { id: 8, name: "🪓 Herrero", to: "/herrero" },
-    { id: 9, name: "🚚 Mudanzas", to: "/mudanzas" },
-    { id: 10, name: "🛋️ Tapicero", to: "/tapicero" },
-    { id: 11, name: "🚧 Constructor", to: "/constructor" },
-    { id: 12, name: "🧑‍🔧 Técnico", to: "/tecnico" },
-    { id: 13, name: "🔌 Instalador de redes", to: "/instalador-de-redes" },
-    { id: 14, name: "🚿 Fontanero", to: "/fontanero" },
-    { id: 15, name: "🌳 Jardinero", to: "/jardinero" },
-    { id: 16, name: "🧱 Albañil de interiores", to: "/albanil-de-interiores" },
-    { id: 17, name: "🏗️ Ingeniero civil", to: "/ingeniero-civil" },
-    { id: 18, name: "🛠️ Técnico de electrodomésticos", to: "/tecnico-de-electrodomesticos" },
-    { id: 19, name: "🧰 Mantenimiento general", to: "/mantenimiento-general" },
-    { id: 20, name: "🎸 Luthier", to: "/luthier" }
-  ];
+const Home = () => {
+  const [step, setStep] = useState(1)
+  const [services, setServices] = useState([])
+  const [categories, setCategories] = useState([])
+  const [cities, setCities] = useState([])
+  const [search, setSearch] = useState({ city: '', category: '' })
+
+  useEffect(() => {
+    fetch('/api/categories')
+      .then(res => res.json())
+      .then(data => setCategories(data.categories))
+
+    fetch('/api/services')
+      .then(res => res.json())
+      .then(data => setServices(data.services))
+
+    fetch('/api/cities')
+      .then(res => res.json())
+      .then(data => setCities(data.cities))
+  }, [])
+
+  const Step1 = (search, setSearch) => {
+    const handleCityChange = (e) => {
+      setSearch((prevSearch) => ({
+        ...prevSearch,
+        city: e.target.value
+      }));
+    };
+
+    const handleCategoryChange = (e) => {
+      setSearch((prevSearch) => ({
+        ...prevSearch,
+        category: e.target.value
+      }));
+    };
+
+    return (
+      <main className={styles.mainS1}>
+        <h1>Logo app 😜</h1>
+        El mejor lugar para encontar ayuda en los servicios que necesites!
+
+        <label className={styles.label} htmlFor="city">Ciudad:</label>
+        <select className={styles.select} name="city" id="city" value={search.city} onChange={handleCityChange}>
+          <option value="">Todos</option>
+          {
+            cities && cities.map(city => (
+              <option key={city.id} value={city.city}>
+                {city.city}
+              </option>
+            ))
+          }
+        </select>
+
+        <label className={styles.label} htmlFor="category">Categoria:</label>
+        <select className={styles.select} name="category" id="category" value={search.category} onChange={handleCategoryChange}>
+          <option value="">Todos</option>
+          {
+            categories && categories.map(category => (
+              <option key={category.id} value={category.name}>
+                {category.name}
+              </option>
+            ))
+          }
+        </select>
+
+        <Button className={styles.button} onClick={() => setStep(step + 1)}>Siguiente</Button>
+      </main>
+    )
+  }
+
+  const Step2 = (category) => {
+    const filteredServices = services.filter(service => 
+      service.categories.includes(category)
+    );
+
+    return (
+      <main>
+        <h3>Aqui podras encontrar distintos servicios, escoge el que necesites</h3>
+        <div className={styles.servicesContainer}>
+          {
+            filteredServices &&
+            filteredServices.map(service => (
+              <ServiceCard key={service.id} service={service} query={search} />
+            ))
+          }
+        </div>
+      </main>
+    )
+  }
 
   return (
-    <main className={styles.main}>
-      <h1>Categorías</h1>
-      <div className={styles.categoriesContainer}>
-        {
-          categories.map((category) => (
-            <CategoryCard key={category.id} category={category} />
-          ))
-        }
-      </div>
+    <main>
+      {step === 1 && Step1(search, setSearch)}
+      {step === 2 && Step2(search.category)}
     </main>
-  );
+  )
 }
+
+export default Home

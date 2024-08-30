@@ -1,0 +1,31 @@
+.active {
+  background-color: rgb(175, 175, 175);
+}
+
+.inactive {
+  background-color: #e2e2e2;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin: 25px 0;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.navItem:hover {
+  background-color: rgb(58, 58, 59);
+  color: white;
+}
+
+.navItem div {
+  display: flex;
+}
+
+.navItem div p{
+  margin-left: 10px;
+}
