@@ -18,11 +18,15 @@ export const Report = sequelize.define(
       comment : {
         type : DataTypes.TEXT,
         allowNull : false,
+      },
+      date : { 
+        type : DataTypes.DATE,
+        allowNull : false,
       }
     },
     {
       modelName : 'Report',
-      timestamps: true,
+      // timestamps: true,
     }
   );
 

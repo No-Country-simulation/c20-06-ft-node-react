@@ -35,6 +35,14 @@ export const ServiceProvider = sequelize.define(
           min: 0,
           max: 5,
         },
+        amountVotes : {
+          type : DataTypes.INTEGER,
+          defaultValue : 0
+        },
+        numberVotes : { 
+          type : DataTypes.INTEGER,
+          defaultValue : 0
+        }
       }
       
     },
