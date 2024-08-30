@@ -3,7 +3,7 @@ import { useSearchParams, usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react'
 import { WorkerCard, Sidebar } from '@/components'
 
-import styles from './service.module.css'
+import styles from './styles.module.css'
 
 const Servicio = () => {
   const [worker, setWorker] = useState([]);

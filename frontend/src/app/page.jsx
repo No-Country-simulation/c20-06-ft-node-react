@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { ServiceCard, Button } from '@/components'
-import styles from './page.module.css'
+import styles from './styles.module.css'
 
 const Home = () => {
   const [step, setStep] = useState(1)
