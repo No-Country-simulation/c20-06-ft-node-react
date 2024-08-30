@@ -3,7 +3,6 @@ import { User } from "../models/User.js"
 export async function getUsers(){
     try {
         const data = await User.findAll();
-        console.log(data);
         return data
     } catch (error) {
         console.log(error.message);
@@ -47,7 +46,6 @@ export async function updateUserById(id, updatedFields) {
         }
 
         const updatedUser = await User.findByPk(id);
-        console.log(updatedUser);
         return updatedUser;
     } catch (error) {
         console.log(error.message);
