@@ -27,10 +27,9 @@ export async function getUserById(id) {
 export async function createNewUser(username, email, password, role){
     try {
         const data = await User.create({username, email, password, role})
-        console.log(data);
         return data
     } catch (error) {
-        // console.log(error.em);
+        console.log(error.message);
         throw new Error("Error creating user")
     }
 }

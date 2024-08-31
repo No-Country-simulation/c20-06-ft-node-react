@@ -1,6 +1,6 @@
 import { Service } from "../models/Services.js";
 
-export async function createService(title, description, price, category) {
+export async function createService(title, description, category) {
   const service = await Service.findOne({ where: { title } });
   if (service) {
     throw new Error(`El servicio con título ${title} ya existe`);
@@ -9,7 +9,6 @@ export async function createService(title, description, price, category) {
   const newService = await Service.create({
     title,
     description,
-    price,
     category,
   });
 

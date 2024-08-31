@@ -8,8 +8,8 @@ import {
 
 export async function createServiceHandler(req, res) {
   try {
-    const { title, description, price, category } = req.body;
-    const newService = await createService(title, description, price, category);
+    const { title, description, category } = req.body;
+    const newService = await createService(title, description, category);
     res.status(201).json(newService);
   } catch (error) {
     res.status(400).json({ error: error.message });
