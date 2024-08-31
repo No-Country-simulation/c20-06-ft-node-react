@@ -1,4 +1,4 @@
-import styles from "./ServiceCard.module.css"
+import styles from "./styles.module.css"
 import Link from "next/link"
 
 const ServiceCard = ({ service, query = null }) => {

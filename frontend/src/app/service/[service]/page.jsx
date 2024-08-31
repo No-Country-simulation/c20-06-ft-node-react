@@ -1,32 +1,18 @@
 "use client"
 import { useSearchParams, usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react'
+import { useFetchWorkers, useFetchCategories, useFetchServices } from '@/utils/hooks';
 import { WorkerCard, Sidebar } from '@/components'
 
-import styles from './service.module.css'
+import styles from './styles.module.css'
 
 const Servicio = () => {
-  const [worker, setWorker] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [services, setServices] = useState([]);
+  const workers = useFetchWorkers();
+  const categories = useFetchCategories();
+  const services = useFetchServices();
 
   const searchParams = useSearchParams();
   const city = searchParams.get('city');
   const service = usePathname().split('/')[2];
-
-  useEffect(() => {
-    fetch('/api/workers')
-      .then(res => res.json())
-      .then(data => setWorker(data.workers))
-
-    fetch('/api/categories')
-      .then(res => res.json())
-      .then(data => setCategories(data.categories))
-
-    fetch('/api/services')
-      .then(res => res.json())
-      .then(data => setServices(data.services))
-  }, [])
 
   return (
     <div className={styles.container}>
@@ -35,9 +21,12 @@ const Servicio = () => {
         Resultados para servicios de {service} en {city}
         <div className={styles.workersContainer}>
           {
-            worker && worker.filter((worker) => worker.city.toLowerCase() === city.toLocaleLowerCase()).map((worker) => (
-              <WorkerCard key={worker.id} worker={worker} />
-            ))
+            workers &&
+            workers
+              .filter((worker) => worker.city.toLowerCase() === city.toLocaleLowerCase())
+              .map((worker) => (
+                <WorkerCard key={worker.id} worker={worker} />
+              ))
           }
         </div>
       </main>

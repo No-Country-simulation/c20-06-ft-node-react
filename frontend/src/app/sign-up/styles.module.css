@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background-color: var(--backgorund-color);
+  color: var(--text-color);
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 75%;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--text-color);
+}
+
+.divider::after {
+  margin-left: 10px;
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.button {
+  width: 250px;
+}
+
+.input {
+  max-width: 75%;
+  min-width: 250px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.title {
+  color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
