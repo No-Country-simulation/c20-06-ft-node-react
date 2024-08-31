@@ -1,13 +1,13 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../../db.js";
 import { User } from "./User.js";
-import { Service } from "./Service.js";
+import { Service } from "./Services.js";
 
 
 
 
 export const ServiceProvider = sequelize.define(
-    "Service_provier",
+    "Service_provider",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -16,31 +16,39 @@ export const ServiceProvider = sequelize.define(
         allowNull : false,
         unique : true
       },
-  
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        
+      profilePicture : {
+        type : DataTypes.STRING,
+        allowNull : true
       },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      role : {
-        type : DataTypes.ENUM("admin", "client", "service_provider"),
+      profileDescription: {
+        type: DataTypes.TEXT,
         allowNull : false
+      },
+      isActive: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
+      rating : {
+        type : DataTypes.FLOAT,
+        defaultValue : 5,
+        validate: {
+          min: 0,
+          max: 5,
+        },
+        amountVotes : {
+          type : DataTypes.INTEGER,
+          defaultValue : 0
+        },
+        numberVotes : { 
+          type : DataTypes.INTEGER,
+          defaultValue : 0
+        }
       }
+      
     },
     {
       modelName : 'Service_provider',
       timestamps: false,
-      // freezeTableName: true,
     }
   );
 
@@ -59,5 +67,3 @@ Service.hasMany(ServiceProvider, {
 ServiceProvider.belongsTo(Service, {
   foreignKey: 'serviceId',
 });
-
-export default ServiceProvider

@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Header = () => {
   return (
-    <div>
+    <div style={{height: '50px'}}>
         Header
       <Link href="/">
         <br />Home
