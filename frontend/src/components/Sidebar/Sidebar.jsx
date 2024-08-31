@@ -15,12 +15,16 @@ const Sidebar = ({ categories, services, city }) => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.login}>
-        <Button>
-          <Link href="/sign-up">
+        <Button className={styles.signUp}>
+          <Link href="/sign-up" className={styles.link}>
             Crear cuenta
           </Link>
         </Button>
-        <Button>Iniciar sesion</Button>
+        <Button className={styles.signIn}>
+          <Link href='/sign-in' className={styles.link}>
+            Iniciar sesion
+          </Link>
+        </Button>
       </div>
 
       <div className={styles.otherServices}>
