@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.containerLayout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background-color: #fff;
+  color: black;
+}
+
+.sidenav {
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentPadding {
+  padding: 20px 30px;
+  overflow-y: auto;
+  flex: 1;
+}
