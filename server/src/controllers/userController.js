@@ -23,7 +23,6 @@ export async function getUserById(id) {
     }
 }
 
-
 export async function createNewUser(username, email, password, role){
     try {
         const data = await User.create({username, email, password, role})
@@ -52,7 +51,6 @@ export async function updateUserById(id, updatedFields) {
     }
 }
 
-
 export async function deleteUserById(id) {
     try {
         const deleted = await User.destroy({
@@ -68,5 +66,16 @@ export async function deleteUserById(id) {
     } catch (error) {
         console.log(error.message);
         throw new Error("Error deleting user");
+    }
+}
+
+export async function getUserByEmail(email){
+    try {
+        const data = await User.findAll({where : { 
+            email : email
+        }})
+        return data
+    } catch (error) {
+        throw new Error("Error getting email")
     }
 }
