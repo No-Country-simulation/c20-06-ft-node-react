@@ -1,4 +1,4 @@
-import styles from './WorkerCard.module.css'
+import styles from './styles.module.css'
 
 const WorkerCard = ({ worker }) => {
   return (

@@ -1,4 +1,4 @@
-import styles from './TextInput.module.css'
+import styles from './styles.module.css'
 
 const TextInput = ({ value = null, onChange = null, type = 'text', className = null, required = false, placeholder, name = null, error = false }) => {
   return (

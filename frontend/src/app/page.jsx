@@ -30,9 +30,10 @@ const Step1 = ({ search, setSearch, cities, categories, onNext }) => {
       <select className={styles.select} name="city" id="city" value={search.city} onChange={handleCityChange}>
         <option value="">Todos</option>
         {
-          cities && cities.map(city => (
-            <option key={city.id} value={city.city}>
-              {city.city}
+          cities &&
+          cities.map(({ id, city }) => (
+            <option key={id} value={city}>
+              {city}
             </option>
           ))
         }

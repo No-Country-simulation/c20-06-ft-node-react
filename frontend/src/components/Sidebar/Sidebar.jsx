@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components';
 
-import styles from './Sidebar.module.css';
+import styles from './styles.module.css';
 import Link from 'next/link';
 
 const Sidebar = ({ categories, services, city }) => {
