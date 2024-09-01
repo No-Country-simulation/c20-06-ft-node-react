@@ -1,0 +1,9 @@
+.addService {
+    text-align: center;
+}
+
+.addService button {
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: none;
+}

@@ -1,0 +1,87 @@
+.imageInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageInput label {
+  margin-bottom: 5px;
+}
+
+.containerImage {
+  background-color: white;
+  border-radius: 7px;
+  border: 2px solid black;
+  outline: none;
+  color: black;
+  font-size: 16px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .headerTitle {
+  color: #807f7f;
+  font-size: 10;
+}
+
+.header input {
+  display: none;
+}
+
+.header label {
+  font-size: 12px;
+  background-color: #807f7f;
+  color: white;
+  padding: 5px 7px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.content {
+  min-height: 5rem;
+  display: flex;
+  overflow-y: auto;
+}
+
+.imageInput p {
+  color: red;
+  margin-bottom: 5px;
+}
+
+.imagePreview {
+  position: relative;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.imagePreview .image {
+  border-radius: 5px;
+}
+
+.removeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra difuminada */
+  transition: background-color 0.3s;
+  color: black;
+}
+
+.removeButton:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+}

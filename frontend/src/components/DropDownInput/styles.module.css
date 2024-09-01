@@ -1,0 +1,25 @@
+.dropDownInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropDownInput label {
+    margin-bottom: 5px;
+}
+
+.dropDownInput select {
+    resize: none;
+    background-color: white;
+    border-radius: 7px;
+    border: 2px solid black;
+    outline: none;
+    color: black;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.dropDownInput p {
+    color: red;
+    margin-bottom: 5px;
+}
