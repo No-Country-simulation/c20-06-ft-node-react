@@ -1,19 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import styles from "./sideNavItem.module.css"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import styles from "./sideNavItem.module.css"
 
 const SideNavItem = (props) => {
   const pathName = usePathname()
   const [isActivate, setActivate] = useState(props.active ?? false)
-  
+
   useEffect(() => {
     setActivate(pathName === props.path);
-  }, [pathName]); 
-  
+  }, [pathName]);
+
   return (
     <Link
       className={`${styles.navItem} ${isActivate ? styles.active : styles.inactive}`}
@@ -23,7 +23,7 @@ const SideNavItem = (props) => {
         {props.icon}
         <p>{props.name}</p>
       </div>
-      <ChevronRight/>
+      <ChevronRight />
     </Link>
   )
 }

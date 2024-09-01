@@ -1,9 +1,11 @@
 :root {
   --primary-color: #E90066;
   --secondary-color: #0A26EE;
-  --backgorund-color: #E5D4CE;
+  --background-color: #F8F8F8;
   --text-color: #070707;
   --celeste: #7FD1D9;
+  --crema: #E5D4CE;
+  
 }
 
 * {
