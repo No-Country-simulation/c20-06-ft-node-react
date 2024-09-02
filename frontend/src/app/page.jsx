@@ -6,7 +6,7 @@ import { useFetchCategories, useFetchCities, useFetchServices } from '@/utils/ho
 
 import styles from './styles.module.css'
 
-const Step1 = ({ search, setSearch, cities, categories, onNext }) => {
+const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
   const handleCityChange = (e) => {
     setSearch((prevSearch) => ({
       ...prevSearch,
@@ -31,9 +31,9 @@ const Step1 = ({ search, setSearch, cities, categories, onNext }) => {
         <option value="">Todos</option>
         {
           cities &&
-          cities.map(({ id, city }) => (
-            <option key={id} value={city}>
-              {city}
+          cities.map((city) => (
+            <option key={city.id} value={city.name}>
+              {city.name}
             </option>
           ))
         }
@@ -44,11 +44,15 @@ const Step1 = ({ search, setSearch, cities, categories, onNext }) => {
         <option value="">Todos</option>
         {
           categories &&
-          categories.map(category => (
-            <option key={category.id} value={category.name}>
-              {category.name}
-            </option>
-          ))
+          categories
+            .filter(category =>
+              services.some(service => service.categories.includes(category.name))
+            )
+            .map(category => (
+              <option key={category.id} value={category.name}>
+                {category.name}
+              </option>
+            ))
         }
       </select>
 
@@ -88,7 +92,7 @@ const Step2 = ({ services, search, onPrev }) => {
         }
 
       </div>
-        <Button className={styles.button} onClick={onPrev}>Volver</Button>
+      <Button className={styles.button} onClick={onPrev}>Volver</Button>
     </main>
   )
 }
@@ -108,6 +112,7 @@ const Home = () => {
         <Step1
           search={search} setSearch={setSearch}
           cities={cities} categories={categories}
+          services={services}
           onNext={() => setStep(step + 1)}
         />
       }

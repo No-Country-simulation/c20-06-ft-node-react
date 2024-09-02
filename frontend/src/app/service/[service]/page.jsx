@@ -9,25 +9,25 @@ const Servicio = () => {
   const workers = useFetchWorkers();
 
   const searchParams = useSearchParams();
-  const city = searchParams.get('city') || '';
   const service = usePathname().split('/')[2];
+  const city = searchParams.get('city') || '';
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        Resultados para servicios de {service} en {city}
-        <div className={styles.workersContainer}>
-          {
-            workers &&
-            workers
-              .filter((worker) => worker.city.toLowerCase() === city.toLocaleLowerCase())
-              .map((worker) => (
-                <WorkerCard key={worker.id} worker={worker} />
-              ))
-          }
-        </div>
-      </main>
-    </div>
+    <main className={styles.main}>
+      Resultados para servicios de {service.split('-').join(' ')} en {city}
+      <div className={styles.workersContainer}>
+        {
+          workers &&
+          workers
+            .filter((worker) =>
+              worker.city.toLowerCase() === city.toLocaleLowerCase()
+            )
+            .map((worker) => (
+              <WorkerCard key={worker.id} worker={worker} />
+            ))
+        }
+      </div>
+    </main>
   );
 };
 

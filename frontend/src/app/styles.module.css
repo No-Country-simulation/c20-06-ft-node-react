@@ -68,6 +68,12 @@
   cursor: pointer;
   width: 250px;
   margin-top: 20px;
+
+  &:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+
+  }
 }
 
 .label {

@@ -1,22 +1,21 @@
 .workerCard {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 15px;
-  justify-content: center;
-  width: 250px;
+  justify-content: flex-start;
+  width: 300px;
   height: 150px;
-  border: 1px, solid, rgb(255, 255, 255);
+  border: 1px, solid, var(--primary-color);
   gap: 10px;
   border-radius: 15px;
-  background-color: #222121;
-  color: white;
+  background-color: var(--background-color);
+  color: var(--primary-color);
   cursor: pointer;
-
   transition: 0.5s;
 
   &:hover {
-    background-color: #3a3a3a;
+    background-color: var(--primary-color);
+    color: var(--background-color);
     transition: 0.5s;
     transform: scale(1.1);
     box-shadow: 0 0 10px white;
@@ -25,4 +24,32 @@
   &:active {
     transform: scale(0.9);
   }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 }
