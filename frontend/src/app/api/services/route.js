@@ -14,7 +14,7 @@ export async function GET() {
       { id: 9, name: "🚚 Mudanzas", to: "/mudanzas", categories: ["Mudanzas y Transporte"] },
       { id: 10, name: "🛋️ Tapicero", to: "/tapicero", categories: ["Hogar"] },
       { id: 11, name: "🚧 Constructor", to: "/constructor", categories: ["Construcción"] },
-      { id: 12, name: "🧑‍🔧 Técnico", to: "/tecnico", categories: ["Tecnología", "Reparaciones"] },
+      { id: 12, name: "🔧 Técnico", to: "/tecnico", categories: ["Tecnología", "Reparaciones"] },
       { id: 13, name: "🔌 Instalador de redes", to: "/instalador-de-redes", categories: ["Tecnología"] },
       { id: 14, name: "🚿 Fontanero", to: "/fontanero", categories: ["Construcción", "Hogar"] },
       { id: 15, name: "🌳 Jardinero", to: "/jardinero", categories: ["Jardinería"] },

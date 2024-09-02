@@ -1,26 +1,19 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--backgorund-color);
+  color: var(--text-color);
+  min-height: 90vh;
+  padding: 20px;
+}
+
 .workersContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   background-color: var(--backgorund-color);
   padding: 20px;
-  border-radius: 5px;
   width: 100%;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  background-color: var(--backgorund-color);
-  color: var(--text-color);
-  min-height: 90vh;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--backgorund-color);
-  color: var(--text-color);
 }

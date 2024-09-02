@@ -5,7 +5,7 @@ export async function GET() {
   const { workers } = await response.json();
 
   const uniqueCities = Array.from(new Set(workers.map(worker => worker.city))).map((city, index) => {
-    return { city, id: index };
+    return { name: city, id: index };
   });
 
   return NextResponse.json({ cities: uniqueCities });

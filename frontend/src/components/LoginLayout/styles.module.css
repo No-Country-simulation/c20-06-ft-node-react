@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  min-width: 50vw;
   background-color: var(--backgorund-color);
   color: var(--text-color);
   border: 1px solid white;

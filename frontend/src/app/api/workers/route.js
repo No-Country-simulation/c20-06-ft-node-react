@@ -5,37 +5,43 @@ export async function GET() {
     {
       "workers": [
         {
-          "name": "Juan Pérez",
+          "name": "Juan",
+          "lastName": "Perez",
           "rating": 4.5,
           "reviewsCount": 120,
           "city": "Buenos Aires"
         },
         {
-          "name": "María González",
+          "name": "María",
+          "lastName": "Gonzalez",
           "rating": 4.7,
           "reviewsCount": 95,
           "city": "Cordoba"
         },
         {
-          "name": "Carlos Fernández",
+          "name": "Carlos",
+          "lastName": "Fernandez",
           "rating": 4.2,
           "reviewsCount": 85,
           "city": "Rosario"
         },
         {
-          "name": "Ana López",
+          "name": "Ana",
+          "lastName": "Lopez",
           "rating": 4.9,
           "reviewsCount": 150,
           "city": "Buenos Aires"
         },
         {
-          "name": "Luis Martínez",
+          "name": "Luis",
+          "lastName": "Martinez",
           "rating": 3.8,
           "reviewsCount": 60,
           "city": "Mendoza"
         },
         {
-          "Name": "Laura Rodríguez",
+          "Name": "Laura",
+          "lastName": "Rodriguez",
           "rating": 4.3,
           "reviewsCount": 110,
           "city": "La Plata"
