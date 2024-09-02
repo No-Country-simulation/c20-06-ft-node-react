@@ -11,7 +11,6 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <main className={styles.main}>
-      <Header />
       <div className={`${styles.containerLayout}`}>
         <SideNavProvider />
         <div className={styles.content}>

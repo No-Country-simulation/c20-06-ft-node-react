@@ -58,28 +58,37 @@ const Step1 = ({ search, setSearch, cities, categories, onNext }) => {
 }
 
 const Step2 = ({ services, search, onPrev }) => {
-  const filteredServices = services.filter(service =>
-    service.categories.includes(search.category)
-  );
+  const filter = () => {
+    if (search.city !== '' && search.category !== '') {
+      const filteredServices = services.filter(service =>
+        service.categories.includes(search.category)
+      );
+      return filteredServices
+    }
+
+    return services
+  }
+
+  const listServices = filter()
 
   return (
-    <main>
-      <h3>Aqui podras encontrar distintos servicios, escoge el que necesites</h3>
+    <main className={styles.mainS2}>
+      <h3 className={styles.title}>Aqui podras encontrar distintos servicios, escoge el que necesites</h3>
       <div className={styles.servicesContainer}>
         {
-          filteredServices &&
-          filteredServices.map(service => (
-            <ServiceCard key={service.id} service={service} query={search} />
+          listServices &&
+          listServices.map(service => (
+            <ServiceCard className={styles.serviceCard} key={service.id} service={service} query={search} />
           ))
         }
 
         {
-          filteredServices.length === 0 &&
+          listServices.length === 0 &&
           <p>No se encontraron resultados</p>
         }
 
-        <Button className={styles.button} onClick={onPrev}>Volver</Button>
       </div>
+        <Button className={styles.button} onClick={onPrev}>Volver</Button>
     </main>
   )
 }
@@ -93,7 +102,7 @@ const Home = () => {
   const services = useFetchServices()
 
   return (
-    <main>
+    <>
       {
         step === 1 &&
         <Step1
@@ -109,7 +118,7 @@ const Home = () => {
           onPrev={() => setStep(step - 1)}
         />
       }
-    </main>
+    </>
   )
 }
 

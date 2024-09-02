@@ -7,16 +7,17 @@
   color: var(--text-color);
   width: 300px;
   padding: 20px;
-  height: 100%;
-  border-right: 1px solid var(--text-color);
+  border-right: 1px solid grey;
+  max-height: 90vh;
 }
 
 .login {
-  height: 150px;
+  height: 20%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
 }
 
@@ -24,35 +25,120 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: flex-start;
   width: 100%;
-  padding: 20px;
-}
-
-button.signUp {
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-
-  &:hover {
-    background-color: var(--primary-color);
-    color: var(--backgorund-color);
-  }
-}
-
-button.signIn {
-  border: 1px solid var(--secondary-color);
-  color: var(--secondary-color);
-
-  &:hover {
-    background-color: var(--secondary-color);
-    color: var(--backgorund-color);
-  }
+  height: 100%;
+  overflow: auto;
+  overflow-wrap: anywhere;
 }
 
 .link {
   text-decoration: none;
   color: inherit;
+  width: 100%;
   font-weight: bold;
-  font-size: 18px;
+}
+
+.button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1rem;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  list-style: none;
+  ;
+}
+
+.categories .button span {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.categories .button span.rotated {
+  transform: rotate(180deg);
+}
+
+.category {
+  justify-content: space-between;
+  border-bottom: 1px solid #838383;
+  width: 100%;
+
+  &:hover {
+    border-bottom: 1px solid var(--primary-color);
+  }
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+.servicesClosing {
+  animation: fadeOutUp 0.5s ease forwards;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: .8rem;
+}
+
+.serviceLink {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.serviceLink:hover {
+  color: var(--primary-color);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }
