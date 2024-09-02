@@ -35,14 +35,14 @@ export const ServiceProvider = sequelize.define(
           min: 0,
           max: 5,
         },
-        amountVotes : {
-          type : DataTypes.INTEGER,
-          defaultValue : 0
-        },
-        numberVotes : { 
-          type : DataTypes.INTEGER,
-          defaultValue : 0
-        }
+      },
+      amountVotes : {
+        type : DataTypes.INTEGER,
+        defaultValue : 0
+      },
+      numberVotes : { 
+        type : DataTypes.INTEGER,
+        defaultValue : 0
       }
       
     },
@@ -60,10 +60,22 @@ ServiceProvider.belongsTo(User, {
     foreignKey: 'userId',
 });
 
-Service.hasMany(ServiceProvider, {
-  foreignKey: 'serviceId',
+// Service.hasMany(ServiceProvider, {
+//   foreignKey: 'serviceId',
+// });
+
+// ServiceProvider.belongsTo(Service, {
+//   foreignKey: 'serviceId',
+// });
+
+ServiceProvider.belongsToMany(Service, {
+  through: 'Service_ProviderServices',  // Nombre de la tabla intermedia
+  as: 'services',
+  foreignKey: 'serviceProviderId',
 });
 
-ServiceProvider.belongsTo(Service, {
+Service.belongsToMany(ServiceProvider, {
+  through: 'Service_ProviderServices',
+  as: 'serviceProviders',
   foreignKey: 'serviceId',
 });

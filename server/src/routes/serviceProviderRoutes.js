@@ -7,6 +7,6 @@ serviceProviderRouter.get("/", getAll);
 serviceProviderRouter.post("/", createServiceProvider);
 serviceProviderRouter.get("/:id", getById );
 
-serviceProviderRouter.put("/:id", updatedServiceProvider )
-serviceProviderRouter.put("/:id/active", updatedActive)
-serviceProviderRouter.put("/:id/rating", updatedRating)
+serviceProviderRouter.put("/:id", updatedServiceProvider );
+serviceProviderRouter.put("/:id/active", updatedActive);
+serviceProviderRouter.put("/:id/rating", updatedRating);

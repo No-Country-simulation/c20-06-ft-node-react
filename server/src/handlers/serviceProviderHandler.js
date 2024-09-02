@@ -14,20 +14,18 @@ export async function getAll(req,res){
 
 export async function createServiceProvider(req, res) {
     const { password, email, username, role } = req.body; // datos user  
-    const { profileDescription, profilePicture, serviceId } = req.body // datos serviceProvider
+    const { profileDescription, profilePicture, serviceIds } = req.body // datos serviceProvider
 
-    // console.log(password, email, username, role, profileDescription, profilePicture); funciona
     try {
         if (role != 'service_provider') return res.json({ ok : false, message : 'Bad request, you should create a service provider'});
-        const service = await getServiceById(serviceId);
-        if(!service) return res.json( { ok : false, message : "Bad request, service doesnt exist" })
-
+        if(!serviceIds) return res.json( { ok : false, message : "Bad request, not sent services" })
+        
         const newUser = await createNewUser(username,email,password,role);
         if(!newUser) return res.json({ ok : false, message : 'error creatin service provider'})
         const id = newUser.dataValues.id;
-
-        const newProfileUser = await createNewServiceProvider(id, serviceId, profileDescription, profilePicture);
-        console.log('new profile user', newProfileUser);
+            
+        const newProfileUser = await createNewServiceProvider(id, profileDescription, profilePicture, serviceIds);
+  
         return res.json({ ok : true, newProfileUser })
         
     } catch (error) {

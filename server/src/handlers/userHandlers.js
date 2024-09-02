@@ -1,5 +1,5 @@
-import { getUsers,getUserById, createNewUser, updateUserById, deleteUserById} from "../controllers/userController.js"
-
+import { getUsers,getUserById, createNewUser, updateUserById, deleteUserById , getUserByEmail} from "../controllers/userController.js"
+import bcript from 'bcrypt';
 
 
 export async function getAllUsers(req, res) {
@@ -19,16 +19,29 @@ export async function getUser(req, res) {
         res.status(500).json({ ok: false, message: error.message });
     }
 }
-
+// export async function getUserByMail (req, res) {
+//     try {
+//         const data = await getUserByEmail
+//     } catch (error) {
+//         res.json({ ok : false, message : "Error getting user"})
+//     }
+// }
 
 
 export async function createUser(req, res){
     const { username, email, password, role } = req.body;
     try {
         if(!username || !email || !password || !role) return res.status(404).json({ ok : false, message : 'Bad request!'})
-        const newUser = await createNewUser(username,email,password,role);
+        const user = await getUserByEmail(email);
+
+        const salt = await bcript.genSalt(10);
+        const hashedPassword = await bcript.hash(password.toString(), salt);
+
+        if(user?.length > 0) return res.json({ok : false, message : "There is one account with this email"})
+        const newUser = await createNewUser(username,email,hashedPassword,role);
         return res.json({ ok : true, newUser})
     } catch (error) {
+        console.log(error);
         res.json({ ok : false, message : "Error creating users"})
     }
 }
@@ -43,7 +56,6 @@ export async function updateUser(req, res) {
         res.status(500).json({ ok: false, message: error.message });
     }
 }
-
 
 export async function deleteUser(req, res) {
     const { id } = req.params;

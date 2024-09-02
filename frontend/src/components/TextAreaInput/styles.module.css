@@ -1,0 +1,25 @@
+.textAreaInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.textAreaInput label {
+    margin-bottom: 5px;
+}
+
+.textAreaInput textarea {
+    resize: none;
+    background-color: white;
+    border-radius: 7px;
+    border: 2px solid black;
+    outline: none;
+    color: black;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.textAreaInput p {
+    color: red;
+    margin-bottom: 5px;
+}

@@ -32,8 +32,8 @@ export async function getUserFavorites(userId) {
     where: { userId },
     include: [
       {
-        model: ServiceProvider,
-        attributes: ["id", "username", "email"], // Puedes ajustar los atributos que quieres incluir
+        model: User,
+        attributes: [ "username", "email"], 
       },
     ],
   });

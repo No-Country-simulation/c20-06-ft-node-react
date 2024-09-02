@@ -1,10 +1,15 @@
+import { Service } from "../models/Services.js";
 import { User } from "../models/User.js";
 import  { ServiceProvider} from "./../models/ServiceProviders.js"
 
 
 export async function getAllServiceProviders() {
     try {
-        const data = await ServiceProvider.findAll({include : [ { model : User, attributes : ['id', 'email', 'username', 'role'] } ]})
+        const data = await ServiceProvider.findAll({include : [ 
+                { model : User, attributes : ['id', 'email', 'username', 'role'] },
+                {model : Service, as : 'services', through : { attributes : []}}
+            ]
+        })
         return data
     } catch (error) {
         console.log(error);
@@ -12,19 +17,31 @@ export async function getAllServiceProviders() {
     }
 }
 
-export async function createNewServiceProvider(userId, serviceId, profileDescription, profilePicture ) {
+export async function createNewServiceProvider(userId, profileDescription, profilePicture, serviceIds ) {
     try {
-        const data = await ServiceProvider.create({ userId, serviceId, profilePicture, profileDescription });
+        const data = await ServiceProvider.create({ userId, profilePicture, profileDescription });
+        const serviceProviderId = data.dataValues.id;
+        if(serviceIds?.length > 0 && serviceProviderId){
+            const serviceProvider = await ServiceProvider.findByPk(serviceProviderId);
+            const services = await Service.findAll({
+                where : { id : serviceIds }
+            })
+            await serviceProvider.addService(services);
+        }
         return data;
     } catch (error) {
-        console.log('Error in controller', error);
+        console.log('Error in controller', error.message);
         throw new Error("Error creating new service provider");
     }
 }
 
 export async function getServiceProviderById(id) {
     try {
-        const data = await ServiceProvider.findByPk(id, {include : [{ model : User, attributes : ['id', 'email', 'username', 'role'] }]});
+        const data = await ServiceProvider.findByPk(id, { include : [
+                { model : User, attributes : ['id', 'email', 'username', 'role'] },
+                {model : Service, as : 'services', through : { attributes : []}}
+            ]
+        });
         return data
     } catch (error) {
         throw new Error(" Error gettin service provider")
