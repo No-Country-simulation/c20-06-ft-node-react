@@ -1,0 +1,201 @@
+paths:
+  /users:
+    post:
+      tags:
+        - Users
+      summary: Inserta información de un nuevo usuario en la base de datos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BodyUserPost'
+      responses:
+        '200':
+          description: Usuario creado con éxito.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessUserPost'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /users/{id}:
+    get:
+      tags:
+        - Users
+      summary: Obtiene información de un usuario de la base de datos.
+      parameters:
+        - name: id
+          in: path
+          description: Identificador del usuario que se desea obtener.
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Usuario encontrado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessUserGet'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    
+    put:
+      tags:
+        - Users
+      summary: Actualiza la información de un usuario en la base de datos.
+      parameters:
+          - name: id
+            in: path
+            description: Identificador del usuario que se desea actualizar.
+            required: true
+            schema:
+              type: integer
+              example: 1
+      requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BodyUserPost'
+      responses:
+          '200':
+            description: Usuario actualizado exitosamente
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SuccessUserPut'
+          '400':
+            $ref: '#/components/responses/BadRequest'
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '500':
+            $ref: '#/components/responses/ServerError'
+
+    delete:
+      tags:
+        - Users
+      summary: Elimina un usuario de la base de datos.
+      parameters:
+          - name: id
+            in: path
+            description: Identificador del usuario que se desea eliminar.
+            required: true
+            schema:
+              type: integer
+              example: 1
+      responses:
+          '200':
+            description: Usuario eliminado exitosamente
+          '404':
+            $ref: '#/components/responses/NotFound'
+          '500':
+            $ref: '#/components/responses/ServerError'
+
+components:
+  schemas:
+    SuccessUserGet:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          example: true
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            username:
+              type: string
+              example: user1
+            email:
+              type: string
+              example: user1@example.com
+            password:
+              type: string
+              example: hashedPassword
+            role:
+              type: string
+              example: client
+    
+    BodyUserPost:
+      type: object
+      properties:
+        username:
+          type: string
+          example: user1
+        email:
+          type: string
+          example: user1@example.com
+        password:
+          type: string
+          example: password123
+        role:
+          type: string
+          example: client
+
+    SuccessUserPost:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          example: true
+        newUser:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            username:
+              type: string
+              example: user1
+            email:
+              type: string
+              example: user1@example.com
+            password:
+              type: string
+              example: hashedPassword
+            role:
+              type: string
+              example: client
+    SuccessUserPut:
+      type: object
+      properties:
+        ok:
+          type: boolean
+          example: true
+        updatedUser:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            username:
+              type: string
+              example: user1
+            email:
+              type: string
+              example: user1@example.com
+            password:
+              type: string
+              example: hashedPassword
+            role:
+              type: string
+              example: client
+              
+
+  responses:
+    BadRequest:
+      description: Solicitud incorrecta.
+    NotFound:
+      description: Usuario no encontrado.
+    ServerError:
+      description: Error en la creación del usuario.

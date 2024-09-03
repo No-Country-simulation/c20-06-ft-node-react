@@ -1,0 +1,13 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: API
+  description: Documentación combinada de la API
+
+servers:
+  - url: http://localhost:3000/
+    description: Servidor local
+
+
+paths:
+  $ref: './swagger/users.yaml'
