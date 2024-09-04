@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../../db.js";
+import { Category } from "./Category.js";
 
 export const Service = sequelize.define(
   "Service",
@@ -33,8 +34,12 @@ export const Service = sequelize.define(
         },
       },
     },
-    category: {
-      type: DataTypes.ENUM("Diseño", "Desarrollo", "Marketing", "Otros"),
+    categoryId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Category,
+        key: 'id',
+      },
       allowNull: false,
     },
   },
@@ -44,3 +49,13 @@ export const Service = sequelize.define(
     // freezeTableName: true,
   }
 );
+
+
+Service.belongsTo(Category, {
+  foreignKey: 'categoryId',
+  as: 'category',
+});
+Category.hasMany(Service, {
+  foreignKey: 'categoryId',
+  as: 'services',
+});

@@ -10,6 +10,7 @@ export async function getAllUsers(req, res) {
         res.json({ ok : false, message : "Error getting users"})
     }
 }
+
 export async function getUser(req, res) {
     const { id } = req.params;
     try {
@@ -19,14 +20,6 @@ export async function getUser(req, res) {
         res.status(500).json({ ok: false, message: error.message });
     }
 }
-// export async function getUserByMail (req, res) {
-//     try {
-//         const data = await getUserByEmail
-//     } catch (error) {
-//         res.json({ ok : false, message : "Error getting user"})
-//     }
-// }
-
 
 export async function createUser(req, res){
     const { username, email, password, role } = req.body;

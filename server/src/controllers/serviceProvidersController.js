@@ -1,3 +1,4 @@
+import { Category } from "../models/Category.js";
 import { Service } from "../models/Services.js";
 import { User } from "../models/User.js";
 import  { ServiceProvider} from "./../models/ServiceProviders.js"
@@ -7,7 +8,11 @@ export async function getAllServiceProviders() {
     try {
         const data = await ServiceProvider.findAll({include : [ 
                 { model : User, attributes : ['id', 'email', 'username', 'role'] },
-                {model : Service, as : 'services', through : { attributes : []}}
+                {model : Service, as : 'services', through : { attributes : []}, include : [{
+                    model: Category,
+                    as: 'category',
+                    attributes: ['id', 'name']
+                }]}
             ]
         })
         return data
@@ -55,6 +60,27 @@ export async function updateServiceProvider(id ,updatedServiceProvider) {
     } catch (error) {
         console.log(error.message);
         throw new Error(" Error updating service provider")
+    }
+}
+
+export async function addServiceToServiceProvider(id, idService) {
+    try {
+        const serviceProvider = await ServiceProvider.findByPk(id);
+        await serviceProvider.addServices(idService);
+        return true
+    } catch (error) {
+        // console.log(error);
+        throw new Error("Error adding service")
+    }
+}
+
+export async function removeServiceToServiceProvider(id, idService) {
+    try {
+        const serviceProvider = await ServiceProvider.findByPk(id);
+        await serviceProvider.removeServices(idService);
+        return true
+    } catch (error) {
+        throw new Error(" Error removing service")
     }
 }
 

@@ -4,6 +4,7 @@ import {
   getServiceById,
   updateService,
   deleteService,
+  generateBasicServices,
 } from "../controllers/servicesControllers.js";
 
 export async function createServiceHandler(req, res) {
@@ -19,7 +20,7 @@ export async function createServiceHandler(req, res) {
 export async function getAllServicesHandler(req, res) {
   try {
     const services = await getAllServices();
-    res.status(200).json(services);
+    res.status(200).json({ok : true, services});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -59,5 +60,17 @@ export async function deleteServiceHandler(req, res) {
     res.status(200).json(result);
   } catch (error) {
     res.status(404).json({ error: error.message });
+  }
+}
+
+export async function generateServices(req, res){
+  try {
+    const data = await generateBasicServices();
+    if(data){
+      return res.json({ ok : true, message : "Services generated sucesfully"});
+    }
+  } catch (error) {
+    // console.log(error);
+    return res.json({ ok : false, message : 'Error '})
   }
 }

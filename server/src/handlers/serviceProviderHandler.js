@@ -1,5 +1,4 @@
-import { getAllServiceProviders, createNewServiceProvider, getServiceProviderById, updateServiceProvider} from "../controllers/serviceProvidersController.js"
-import { getServiceById } from "../controllers/servicesControllers.js";
+import { getAllServiceProviders, createNewServiceProvider, getServiceProviderById, updateServiceProvider, addServiceToServiceProvider, removeServiceToServiceProvider} from "../controllers/serviceProvidersController.js"
 import { createNewUser,updateUserById } from "../controllers/userController.js";
 
 
@@ -105,5 +104,36 @@ export async function updatedRating(req, res) {
     } catch (error) {
         console.log(error);
         res.json({ ok : false, message : "Error updating rating"})
+    }
+}
+
+export async function addService (req, res) {
+    const { id, idService } = req.params;
+    if(!id || !idService ) return res.json( { ok : false, message : "Bad request. id or idService not sent"});
+    try {
+        const serviceProvider = await getServiceProviderById(id)
+        if(!serviceProvider) return res.json( { ok : false, message : "service provides doesnt exist"})
+        
+        const data = await addServiceToServiceProvider(id, idService);
+        if(!data) return res.json( { ok : false, message : 'Error adding service'});
+        return res.json( { ok : true, message : "Service added sucesfully!"})
+    } catch (error) {
+        console.log(error);
+        return res.json({ ok : false, message : 'Error adding serice'})
+    }
+}
+
+export async function removeService(req, res ) {
+    const { id, idService } = req.params;
+    if(!id || !idService ) return res.json( { ok : false, message : "Bad request. id or idService not sent"});
+    try {
+        const serviceProvider = await getServiceProviderById(id)
+        if(!serviceProvider) return res.json( { ok : false, message : "service provides doesnt exist"})
+            
+        const data = await removeServiceToServiceProvider(id, idService);
+        if(!data) return res.json( { ok : false, message : "Error removing service"})
+        return res.json( { ok : true, message : 'Service removed sucesfully!' })
+    } catch (error) {
+        return res.json( { ok : false, message: 'Error removing service'})
     }
 }
