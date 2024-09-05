@@ -1,45 +1,46 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+const useFetchData = (api) => {
+  const [data, setData] = useState([]);
+  const fetched = useRef(false);
+
+  useEffect(() => {
+    const fetchData = async (api) => {
+      try {
+        const res = await fetch(api);
+        const data = await res.json();
+        setData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (!fetched.current) {
+      fetched.current = true;
+      fetchData(api);
+    }
+  }, [api])
+
+  return data;
+};
+
 
 export const useFetchCategories = () => {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    fetch('/api/categories')
-      .then(res => res.json())
-      .then(data => setCategories(data.categories));
-  }, []);
-
-  return categories;
+  const data = useFetchData('/api/categories');
+  return data.categories
 };
 
 export const useFetchWorkers = () => {
-  const [workers, setWorkers] = useState([]);
-  useEffect(() => {
-    fetch('/api/workers')
-      .then(res => res.json())
-      .then(data => setWorkers(data.workers));
-  }, []);
-
-  return workers;
+  const data = useFetchData('/api/workers');
+  return data.workers
 }
 
 export const useFetchCities = () => {
-  const [cities, setCities] = useState([]);
-  useEffect(() => {
-    fetch('/api/cities')
-      .then(res => res.json())
-      .then(data => setCities(data.cities));
-  }, []);
-
-  return cities;
+  const data = useFetchData('/api/cities');
+  return data.cities
 }
 
 export const useFetchServices = () => {
-  const [services, setServices] = useState([]);
-  useEffect(() => {
-    fetch('/api/services')
-      .then(res => res.json())
-      .then(data => setServices(data.services));
-  }, []);
-
-  return services;
+  const data = useFetchData('/api/services');
+  return data.services
 }

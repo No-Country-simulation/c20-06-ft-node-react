@@ -17,9 +17,7 @@ const Servicio = () => {
       Resultados para servicios de {service.split('-').join(' ')} en {city}
       <div className={styles.workersContainer}>
         {
-          workers &&
-          workers
-            .filter((worker) =>
+          workers?.filter((worker) =>
               worker.city.toLowerCase() === city.toLocaleLowerCase()
             )
             .map((worker) => (
