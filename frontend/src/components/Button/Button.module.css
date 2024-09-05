@@ -6,14 +6,8 @@
   padding: 10px;
   cursor: pointer;
   margin-top: 20px;
-
   transition: 0.5s;
 
-  &:hover {
-    background-color: var(--text-color);
-    color: var(--backgorund-color);
-    transition: 0.5s;
-  }
 
   &:active {
     transform: scale(0.9);
