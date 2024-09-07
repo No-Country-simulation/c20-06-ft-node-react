@@ -1,7 +1,7 @@
 import { ACOUNT_GMAIL } from "../config/envs.js";
 import createTransporter from "../config/nodemailer.js";
 import { verificationCode } from "../utils/verificationCode.js";
-import { htmlVerifyEmail } from "../helpers/htmlVerifyEmail.js";
+// import { htmlVerifyEmail } from "../helpers/htmlVerifyEmail.js";
 export async function sendAccountCreationSuccessEmail(email) {
   const transporter = await createTransporter();
   const message = {
@@ -34,9 +34,9 @@ export async function sendAccountLoginCheckEmail(email) {
     from: ACOUNT_GMAIL, // Utiliza la variable de entorno EMAIL
     subject: "Verificación de correo electronico",
 
-    html: htmlVerifyEmail
-      .replace(`{{code}}`, code)
-      .replace("{{Ingresar codigo}}", EduTech),
+    // html: htmlVerifyEmail
+    //   .replace(`{{code}}`, code)
+    //   .replace("{{Ingresar codigo}}", EduTech),
   };
 
   try {
