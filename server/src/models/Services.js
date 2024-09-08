@@ -33,15 +33,7 @@ export const Service = sequelize.define(
           msg: "La descripción no puede tener más de 500 caracteres",
         },
       },
-    },
-    categoryId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: Category,
-        key: 'id',
-      },
-      allowNull: false,
-    },
+    }
   },
   {
     modelName: "Service",
@@ -51,11 +43,23 @@ export const Service = sequelize.define(
 );
 
 
-Service.belongsTo(Category, {
-  foreignKey: 'categoryId',
-  as: 'category',
+// Service.belongsTo(Category, {
+//   foreignKey: 'categoryId',
+//   as: 'category',
+// });
+// Category.hasMany(Service, {
+//   foreignKey: 'categoryId',
+//   as: 'services',
+// });
+
+Service.belongsToMany(Category, {
+  through: 'ServiceCategory',
+  as: 'categories',
+  foreignKey: 'serviceId'
 });
-Category.hasMany(Service, {
-  foreignKey: 'categoryId',
+
+Category.belongsToMany(Service, {
+  through: 'ServiceCategory',
   as: 'services',
+  foreignKey: 'categoryId'
 });

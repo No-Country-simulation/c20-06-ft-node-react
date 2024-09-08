@@ -1,8 +1,8 @@
 import app from "./app.js";
-// import { PORT } from "./src/config/envs.js";
+import { PORT } from "./src/config/envs.js";
 import sequelize from "./db.js";
 
-const PORT = 3000;
+// const PORT = 3000;
 
 app.listen(PORT, async () => {
   const data = await sequelize.query("select now()");

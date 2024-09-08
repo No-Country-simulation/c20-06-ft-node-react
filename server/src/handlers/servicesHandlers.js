@@ -9,8 +9,9 @@ import {
 
 export async function createServiceHandler(req, res) {
   try {
-    const { title, description, category } = req.body;
-    const newService = await createService(title, description, category);
+    const { title, description, categories } = req.body; // categories es array. ej ["Jardin","Hogar"].
+    if(!categories || categories?.length == 0 ) return res.json({ ok : false, message : 'Categories not sent'});
+    const newService = await createService(title, description, categories);
     res.status(201).json(newService);
   } catch (error) {
     res.status(400).json({ error: error.message });

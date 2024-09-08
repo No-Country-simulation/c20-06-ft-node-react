@@ -60,14 +60,6 @@ ServiceProvider.belongsTo(User, {
     foreignKey: 'userId',
 });
 
-// Service.hasMany(ServiceProvider, {
-//   foreignKey: 'serviceId',
-// });
-
-// ServiceProvider.belongsTo(Service, {
-//   foreignKey: 'serviceId',
-// });
-
 ServiceProvider.belongsToMany(Service, {
   through: 'Service_ProviderServices',  // Nombre de la tabla intermedia
   as: 'services',
