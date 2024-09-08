@@ -23,15 +23,27 @@ export async function getUserById(id) {
     }
 }
 
-export async function createNewUser(username, email, password, role){
+
+
+export async function createNewUser(username, email, password, role, locationId) {
+
+
     try {
-        const data = await User.create({username, email, password, role})
-        return data
+        const data = await User.create({
+            username,
+            email,
+            password,
+            role,
+            locationId
+        });
+        return data;
     } catch (error) {
         console.log(error.message);
-        throw new Error("Error creating user")
+        throw new Error("Error creating user");
     }
 }
+
+
 
 export async function updateUserById(id, updatedFields) {
     try {
