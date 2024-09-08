@@ -8,6 +8,7 @@ import { serviceProviderRouter } from "./serviceProviderRoutes.js";
 import favoriteRouters from "./favoriteRoutes.js";
 import { reportRouter } from "./reportRouters.js";
 import { categoryRouter } from "./categoryRouter.js";
+import { locationsRouter } from "./locationsRouters.js";
 
 const router = express.Router();
 router.use("/", formRouters);
@@ -19,4 +20,5 @@ router.use("/reports", reportRouter)
 router.use("/categories", categoryRouter)
 // router.use("/comments", commentsRouter);
 router.use("/", favoriteRouters);
+router.use("/locations", locationsRouter);
 export default router;
