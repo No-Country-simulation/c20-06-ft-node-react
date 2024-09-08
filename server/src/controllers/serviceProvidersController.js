@@ -1,13 +1,13 @@
 import { Category } from "../models/Category.js";
 import { Service } from "../models/Services.js";
 import { User } from "../models/User.js";
-import  { ServiceProvider} from "./../models/ServiceProviders.js"
+import  { ServiceProvider} from "./../models/ServiceProviders.js";
 
 
 export async function getAllServiceProviders() {
     try {
         const data = await ServiceProvider.findAll({include : [ 
-                { model : User, attributes : ['id', 'email', 'username', 'role'] },
+                { model : User, attributes : ['id', 'email', 'username', 'role','locationId'] },
                 {model : Service, as : 'services', through : { attributes : []}, include : [{
                     model: Category,
                     as: 'category',

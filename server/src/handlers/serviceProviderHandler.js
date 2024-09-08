@@ -1,5 +1,6 @@
 import { getAllServiceProviders, createNewServiceProvider, getServiceProviderById, updateServiceProvider, addServiceToServiceProvider, removeServiceToServiceProvider} from "../controllers/serviceProvidersController.js"
 import { createNewUser,updateUserById } from "../controllers/userController.js";
+import bcrypt from 'bcrypt';
 
 
 export async function getAll(req,res){
@@ -12,14 +13,17 @@ export async function getAll(req,res){
 }
 
 export async function createServiceProvider(req, res) {
-    const { password, email, username, role } = req.body; // datos user  
+    const { password, email, username, role, locationId } = req.body; // datos user  
     const { profileDescription, profilePicture, serviceIds } = req.body // datos serviceProvider
 
     try {
         if (role != 'service_provider') return res.json({ ok : false, message : 'Bad request, you should create a service provider'});
         if(!serviceIds) return res.json( { ok : false, message : "Bad request, not sent services" })
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password.toString(), salt);
         
-        const newUser = await createNewUser(username,email,password,role);
+        const newUser = await createNewUser(username, email, hashedPassword, role, locationId);
         if(!newUser) return res.json({ ok : false, message : 'error creatin service provider'})
         const id = newUser.dataValues.id;
             
