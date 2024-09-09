@@ -1,10 +1,12 @@
 "use client"
 import { useState, useMemo } from 'react'
 
-import { ServiceCard, Button } from '@/components'
+import { ServiceCard, Button, DialogBox } from '@/components'
 import { useFetchCategories, useFetchCities, useFetchServices } from '@/utils/hooks'
+import Img from '@/assets/ph_user.png'
 
 import styles from './styles.module.css'
+import Image from 'next/image'
 
 const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
   const handleCityChange = (e) => {
@@ -57,6 +59,16 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
 
         <Button className={styles.button} onClick={onNext}>Siguiente</Button>
       </article>
+      <div className={styles.userContainer}>
+        <div className={styles.dialogContainer}>
+          <DialogBox>
+            <p>Usar ChangasApp me cambio la vida</p>
+          </DialogBox>
+        </div>
+        <div className={styles.userImageContainer}>
+          <Image className={styles.image} src={Img} alt="image" />
+        </div>
+      </div>
     </section>
   )
 }
