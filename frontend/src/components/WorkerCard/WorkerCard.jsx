@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './styles.module.css'
 
 const WorkerCard = ({ worker }) => {
@@ -5,8 +6,9 @@ const WorkerCard = ({ worker }) => {
     <article className={styles.workerCard}>
       <figure className={styles.imageContainer}>
         {
-          worker.picture ? <img src={worker.picture} alt={worker.name} /> :
-            <div className={styles.image}>
+          worker.picture
+            ? <Image src={worker.picture} alt={worker.name} />
+            : <div className={styles.image}>
               {worker.name[0]}{worker.lastName[0]}
             </div>
         }

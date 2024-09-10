@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import { ServiceCard, Button, DialogBox } from '@/components'
 import { useFetchCategories, useFetchCities, useFetchServices } from '@/utils/hooks'
 import Img from '@/assets/ph_user.png'
+import Logo from '@/assets/logo.png'
 
 import styles from './styles.module.css'
 import Image from 'next/image'
@@ -27,8 +28,11 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
     <section className={styles.container}>
       <article className={styles.card}>
         <figure className={styles.imageContainer}>
+          <Image src={Logo} alt="logo" width={70} height={70} />
         </figure>
-        NOMBRE APP, el mejor lugar para encontrar ayuda en los servicios que tu necesites
+        <p>
+          Changas<strong style={{ color: 'var(--primary-color)' }}>App</strong>, el mejor lugar para encontrar ayuda en los servicios que tu necesites
+        </p>
 
         <label className={styles.label} htmlFor="city">Ciudad:</label>
         <select className={styles.select} name="city" id="city" value={search.city} onChange={handleCityChange}>

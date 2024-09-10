@@ -1,0 +1,64 @@
+{
+  "workers": [
+    {
+      "name": "Juan",
+      "lastName": "Perez",
+      "rating": 4.5,
+      "reviewsCount": 120,
+      "city": "Buenos Aires",
+      "id": 1,
+      "services": ["Electricista", "Plomero", "Carpintero"],
+      "description": "Especialista en reparaciones eléctricas, plomería y carpintería con más de 10 años de experiencia en el mercado. Trabajo rápido y eficiente."
+    },
+    {
+      "name": "María",
+      "lastName": "Gonzalez",
+      "rating": 4.7,
+      "reviewsCount": 95,
+      "city": "Cordoba",
+      "id": 2,
+      "services": ["Pintor", "Decorador de interiores"],
+      "description": "Profesional en pintura y decoración de interiores, transformando espacios en ambientes únicos y acogedores. Detallista y creativo."
+    },
+    {
+      "name": "Carlos",
+      "lastName": "Fernandez",
+      "rating": 4.2,
+      "reviewsCount": 85,
+      "city": "Rosario",
+      "id": 3,
+      "services": ["Albañil", "Jardinero"],
+      "description": "Experto en construcción y jardinería, realizando trabajos desde cimientos hasta el mantenimiento de jardines. Atención al detalle y terminaciones impecables."
+    },
+    {
+      "name": "Ana",
+      "lastName": "Lopez",
+      "rating": 4.9,
+      "reviewsCount": 150,
+      "city": "Buenos Aires",
+      "id": 4,
+      "services": ["Electricista", "Gasista"],
+      "description": "Técnico certificado en instalaciones eléctricas y de gas. Garantizo seguridad y cumplimiento de todas las normativas vigentes."
+    },
+    {
+      "name": "Luis",
+      "lastName": "Martinez",
+      "rating": 3.8,
+      "reviewsCount": 60,
+      "city": "Mendoza",
+      "id": 5,
+      "services": ["Plomero", "Mecánico"],
+      "description": "Plomero y mecánico con una sólida trayectoria en la resolución de problemas complejos. Rapidez y eficacia en cada trabajo."
+    },
+    {
+      "name": "Laura",
+      "lastName": "Rodriguez",
+      "rating": 4.3,
+      "reviewsCount": 110,
+      "city": "La Plata",
+      "id": 6,
+      "services": ["Diseñador gráfico", "Fotógrafo"],
+      "description": "Diseñador gráfico y fotógrafo, apasionado por capturar momentos únicos y crear diseños que transmitan la esencia de cada proyecto."
+    }
+  ]
+}
