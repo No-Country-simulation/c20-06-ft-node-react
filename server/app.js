@@ -12,4 +12,8 @@ app.use(morgan("dev"));
 
 app.use("/", router);
 
+app.listen(3000, () => {
+    console.log('Corriendo api puerto 3000');
+})
+
 export default app;

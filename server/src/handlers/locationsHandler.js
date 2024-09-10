@@ -10,7 +10,6 @@ export async function getAllLocations(req, res) {
     }
 }
 
-
 export async function getLocationById(req, res){
     const {id} = req.params;
     try {
@@ -20,9 +19,6 @@ export async function getLocationById(req, res){
         res.status(500).json({ok:false, message: error.message});
     }
 }
-
-
-
 
 export async function generateLocations (req, res){
     try {

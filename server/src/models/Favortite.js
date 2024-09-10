@@ -24,19 +24,7 @@ export const Favorite = sequelize.define(
 
 
 
-User.hasMany(Favorite, {
-    foreignKey: 'userId',
-    onDelete: 'CASCADE',
-  });
-  Favorite.belongsTo(User, {
-    foreignKey: 'userId',
-  });
-  
 
-ServiceProvider.hasMany(Favorite, {
-    foreignKey: 'providerId',
-    onDelete: 'CASCADE',
-  });
-  Favorite.belongsTo(ServiceProvider, {
-    foreignKey: 'providerId',
-  });
+  
+ServiceProvider.hasMany(Favorite, { foreignKey: 'providerId', onDelete: 'CASCADE'});
+Favorite.belongsTo(ServiceProvider, { foreignKey: 'providerId' });

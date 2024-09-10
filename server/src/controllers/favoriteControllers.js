@@ -1,6 +1,7 @@
 import { Favorite } from "../models/Favortite.js";
 import { User } from "../models/User.js";
 import { ServiceProvider } from "../models/ServiceProviders.js";
+import { Service } from "../models/Services.js";
 
 export async function addFavorite(userId, providerId) {
   const user = await User.findByPk(userId);
@@ -31,10 +32,9 @@ export async function getUserFavorites(userId) {
   return await Favorite.findAll({
     where: { userId },
     include: [
-      {
-        model: User,
-        attributes: [ "username", "email"], 
-      },
+      {model : ServiceProvider, include : [
+        {model : Service, as : 'services'}
+      ]}
     ],
   });
 }

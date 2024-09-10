@@ -24,18 +24,11 @@ export async function getUserById(id) {
 }
 
 
-
-export async function createNewUser(username, email, password, role, locationId) {
+export async function createNewUser( {last_name, first_name, phone_number, email, password, role, locationId} ) {
 
 
     try {
-        const data = await User.create({
-            username,
-            email,
-            password,
-            role,
-            locationId
-        });
+        const data = await User.create( {last_name, first_name, phone_number, email, password, role, locationId});
         return data;
     } catch (error) {
         console.log(error.message);
@@ -58,7 +51,7 @@ export async function updateUserById(id, updatedFields) {
         const updatedUser = await User.findByPk(id);
         return updatedUser;
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
         throw new Error("Error updating user");
     }
 }

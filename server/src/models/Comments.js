@@ -27,17 +27,5 @@ export const Comment = sequelize.define(
     }
   );
 
-User.hasMany(Comment, {
-  foreignKey: 'userId',
-});
-Comment.belongsTo(User, {
-  foreignKey: 'userId',
-});
-
-ServiceProvider.hasMany(Comment, {
-    foreignKey: 'providerId',
-    onDelete: 'CASCADE',
-  });
-Comment.belongsTo(ServiceProvider, {
-    foreignKey: 'providerId',
-});
+// ServiceProvider.hasMany(Comment, {foreignKey: 'providerId',onDelete: 'CASCADE' });
+// Comment.belongsTo(ServiceProvider, { foreignKey: 'providerId' });

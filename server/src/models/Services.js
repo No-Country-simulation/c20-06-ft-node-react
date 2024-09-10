@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../../db.js";
 import { Category } from "./Category.js";
+import { ServiceProvider } from "./ServiceProviders.js";
 
 export const Service = sequelize.define(
   "Service",
@@ -41,25 +42,8 @@ export const Service = sequelize.define(
     // freezeTableName: true,
   }
 );
-
-
-// Service.belongsTo(Category, {
-//   foreignKey: 'categoryId',
-//   as: 'category',
-// });
-// Category.hasMany(Service, {
-//   foreignKey: 'categoryId',
-//   as: 'services',
-// });
-
-Service.belongsToMany(Category, {
-  through: 'ServiceCategory',
-  as: 'categories',
-  foreignKey: 'serviceId'
+Service.belongsToMany(Category, { through: 'ServiceCategory', as: 'categories', foreignKey: 'serviceId'
 });
+Category.belongsToMany(Service, { through: 'ServiceCategory', as: 'services', foreignKey: 'categoryId' });
 
-Category.belongsToMany(Service, {
-  through: 'ServiceCategory',
-  as: 'services',
-  foreignKey: 'categoryId'
-});
+

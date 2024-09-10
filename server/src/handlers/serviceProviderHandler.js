@@ -13,7 +13,7 @@ export async function getAll(req,res){
 }
 
 export async function createServiceProvider(req, res) {
-    const { password, email, username, role, locationId } = req.body; // datos user  
+    const { password, email, last_name, first_name, phone_number, role, locationId } = req.body; // datos user  
     const { profileDescription, profilePicture, serviceIds } = req.body // datos serviceProvider
 
     try {
@@ -23,7 +23,7 @@ export async function createServiceProvider(req, res) {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password.toString(), salt);
         
-        const newUser = await createNewUser(username, email, hashedPassword, role, locationId);
+        const newUser = await createNewUser({last_name, first_name, phone_number, email, password, role, locationId});
         if(!newUser) return res.json({ ok : false, message : 'error creatin service provider'})
         const id = newUser.dataValues.id;
             
@@ -51,22 +51,23 @@ export async function getById(req,res) {
 
 export async function updatedServiceProvider(req, res) {
     const { id } = req.params;
-    const { profilePicture, profileDescription, isActive, username } = req.body;
+    const { profilePicture, profileDescription, isActive, last_name, first_name, phone_number } = req.body;
 
     try {
         const serviceProvider = await getServiceProviderById(id);
         if(!serviceProvider) return res.json({ ok : false, message : 'Bad request, it service provider doesnt exist! '});
 
-        if(username ){
+        if(first_name || last_name || phone_number ){
             const id = serviceProvider.dataValues.User.id;
-            const userUpdated = await updateUserById(id, {username});
+            const userUpdated = await updateUserById(id, {phone_number, first_name, last_name});
         }
         console.log('aca');
 
-        const [data] = await updateServiceProvider(id, { profilePicture, profileDescription, isActive});
+        const [data] = await updateServiceProvider(id, { profilePicture, profileDescription, isActive, last_name, first_name, phone_number});
         
         return res.json({ ok : true, message : "Service profile updated sucesfully!"});
     } catch (error) {
+        console.log(error.message);
         res.json({ ok : false, error : 'Error updating update'})
     }
 }

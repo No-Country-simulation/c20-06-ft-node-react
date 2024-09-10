@@ -29,19 +29,4 @@ export const Report = sequelize.define(
       // timestamps: true,
     }
   );
-
-
-User.hasMany(Report, {
-    foreignKey: 'userId',
-  });
-Report.belongsTo(User, {
-    foreignKey: 'userId',
-  });
   
-ServiceProvider.hasMany(Report, {
-    foreignKey: 'providerId',
-    onDelete: 'CASCADE',
-  });
-Report.belongsTo(ServiceProvider, {
-    foreignKey: 'providerId',
-  });

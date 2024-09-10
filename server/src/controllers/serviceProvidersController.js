@@ -7,10 +7,10 @@ import  { ServiceProvider} from "./../models/ServiceProviders.js";
 export async function getAllServiceProviders() {
     try {
         const data = await ServiceProvider.findAll({include : [ 
-                { model : User, attributes : ['id', 'email', 'username', 'role','locationId'] },
+                { model : User, attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role','locationId'] },
                 {model : Service, as : 'services', through : { attributes : []}, include : [{
                     model: Category,
-                    as: 'category',
+                    as: 'categories',
                     attributes: ['id', 'name']
                 }]}
             ]
@@ -43,7 +43,7 @@ export async function createNewServiceProvider(userId, profileDescription, profi
 export async function getServiceProviderById(id) {
     try {
         const data = await ServiceProvider.findByPk(id, { include : [
-                { model : User, attributes : ['id', 'email', 'username', 'role'] },
+                { model : User, attributes : ['id', 'email', 'last_name','first_name','phone_number', 'role'] },
                 {model : Service, as : 'services', through : { attributes : []}}
             ]
         });

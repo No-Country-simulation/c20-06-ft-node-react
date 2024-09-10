@@ -1,6 +1,7 @@
 import { Comment } from "../models/Comments.js";
+import { ServiceProvider } from "../models/ServiceProviders.js";
 import { User } from "../models/User.js";
-import { ServiceProvider } from "../models/serviceProviders.js";
+// import { ServiceProvider } from "../models/serviceProviders.js";
 
 
 export async function getComments(){

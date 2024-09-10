@@ -1,6 +1,10 @@
 import { DataTypes } from "sequelize";
 import {Location} from "./Locations.js"
+import { Comment } from "./Comments.js";
 import sequelize from "../../db.js";
+import { ServiceProvider } from "./ServiceProviders.js";
+import { Report } from "./Reports.js";
+import { Favorite } from "./Favortite.js";
 
 
 
@@ -15,11 +19,19 @@ export const User = sequelize.define(
       allowNull : false,
       unique : true
     },
+    phone_number : {
+      type : DataTypes.BIGINT,
+      allowNull : false
+    },
 
-    username: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
       
+    },
+    last_name: {
+      type : DataTypes.STRING,
+      allowNull : false
     },
     email: {
       type: DataTypes.STRING,
@@ -41,7 +53,7 @@ export const User = sequelize.define(
           model: Location,
           key: 'id',
       },
-      allowNull: true, // Si quieres permitir que un usuario no tenga ubicación
+      allowNull: true,
     }
   },
   {
@@ -55,4 +67,14 @@ export const User = sequelize.define(
 User.belongsTo(Location, { foreignKey: 'locationId' });
 Location.hasMany(User, { foreignKey: 'locationId' });
 
+User.hasOne(ServiceProvider, { foreignKey: 'userId', onDelete: 'CASCADE' });
+ServiceProvider.belongsTo(User, { foreignKey: 'userId'});
 
+User.hasMany(Comment, { foreignKey: 'userId' });
+Comment.belongsTo(User, { foreignKey: 'userId'});
+
+User.hasMany(Report, {foreignKey: 'userId' });
+Report.belongsTo(User, { foreignKey: 'userId', });
+
+User.hasMany(Favorite, {foreignKey: 'userId', onDelete: 'CASCADE' });
+Favorite.belongsTo(User, {foreignKey: 'userId'});

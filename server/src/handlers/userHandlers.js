@@ -40,12 +40,13 @@ export async function getUser(req, res) {
 //     }
 // }
 export async function createUser(req, res) {
-    const { username, email, password, role, locationId } = req.body;
-    console.log(req.body); 
+    const { last_name, first_name, phone_number, email, password, role, locationId } = req.body;
+
 
     try {
-        if (!username || !email || !password || !role || !locationId) {
-            return res.status(400).json({ ok: false, message: 'Bad request!' });
+        if (!last_name || !email || !password || !role || !locationId || 
+            !first_name || !phone_number) {
+            return res.status(400).json({ ok: false, message: 'Bad request, missing information! ' });
         }
 
         const user = await getUserByEmail(email);
@@ -56,14 +57,13 @@ export async function createUser(req, res) {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password.toString(), salt);
 
-        // Verificar si la localidad existe en la base de datos
-        const location = await getLocation(locationId); // Asegúrate de que la localidad existe
+        const location = await getLocation(locationId); 
         if (!location) {
             return res.status(400).json({ ok: false, message: "Invalid location" });
         }
 
         // Crear el nuevo usuario
-        const newUser = await createNewUser( username, email, hashedPassword, role, locationId );
+        const newUser = await createNewUser( {last_name, first_name, phone_number, email, password : hashedPassword, role, locationId} );
         
         return res.json({ ok: true, newUser });
     } catch (error) {

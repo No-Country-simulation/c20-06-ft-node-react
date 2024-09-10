@@ -28,7 +28,6 @@ export async function findOrCreateLocation(city, state, postalCode, latitude, lo
     }
 }
 
-
 export async function getLocations() {
     try {
         const data = await Location.findAll();

@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../../db.js";
-import { User } from "./User.js";
 import { Service } from "./Services.js";
+import { Report } from "./Reports.js";
 
 
 
@@ -52,22 +52,11 @@ export const ServiceProvider = sequelize.define(
     }
   );
 
-User.hasOne(ServiceProvider, {
-    foreignKey: 'userId',
-    onDelete: 'CASCADE',
-});
-ServiceProvider.belongsTo(User, {
-    foreignKey: 'userId',
-});
 
-ServiceProvider.belongsToMany(Service, {
-  through: 'Service_ProviderServices',  // Nombre de la tabla intermedia
-  as: 'services',
-  foreignKey: 'serviceProviderId',
-});
+  
+ServiceProvider.belongsToMany(Service, { through: 'ServiceProviderServices', as: 'services', foreignKey: 'serviceProviderId' });
+Service.belongsToMany(ServiceProvider, { through: 'ServiceProviderServices', as: 'providers', foreignKey: 'serviceId',});
 
-Service.belongsToMany(ServiceProvider, {
-  through: 'Service_ProviderServices',
-  as: 'serviceProviders',
-  foreignKey: 'serviceId',
-});
+ServiceProvider.hasMany(Report, {foreignKey: 'providerId',onDelete: 'CASCADE'});
+Report.belongsTo(ServiceProvider, { foreignKey: 'providerId' });
+

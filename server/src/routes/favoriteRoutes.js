@@ -7,8 +7,8 @@ import {
 
 const favoriteRouters = express.Router();
 
-favoriteRouters.post("/favorites", addFavoriteHandler);
-favoriteRouters.delete("/favorites/:id", removeFavoriteHandler);
-favoriteRouters.get("/users/:userId/favorites", getUserFavoritesHandler);
+favoriteRouters.post("/", addFavoriteHandler);
+favoriteRouters.delete("/:id", removeFavoriteHandler);
+favoriteRouters.get("/users/:userId", getUserFavoritesHandler);
 
 export default favoriteRouters;
