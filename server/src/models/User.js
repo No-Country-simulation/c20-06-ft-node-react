@@ -64,8 +64,8 @@ export const User = sequelize.define(
 );
 
 
-User.belongsTo(Location, { foreignKey: 'locationId' });
-Location.hasMany(User, { foreignKey: 'locationId' });
+User.belongsToMany(Location, { through: 'UserLocations', as: 'locations', foreignKey: 'userId' });
+Location.belongsToMany(User, { through: 'UserLocations', as: 'users', foreignKey: 'locationId' });
 
 User.hasOne(ServiceProvider, { foreignKey: 'userId', onDelete: 'CASCADE' });
 ServiceProvider.belongsTo(User, { foreignKey: 'userId'});

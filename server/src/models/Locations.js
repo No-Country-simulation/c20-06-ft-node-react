@@ -2,8 +2,16 @@ import sequelize from "../../db.js";
 import { DataTypes } from "sequelize";
 
 
+
 export const Location = sequelize.define(
-    'Location', {
+    'locations', {
+    id: {
+            type: DataTypes.INTEGER,
+            autoIncrement : true,
+            primaryKey: true,
+            allowNull : false,
+            unique : true
+        },
     city: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -24,4 +32,8 @@ export const Location = sequelize.define(
         type: DataTypes.FLOAT,
         allowNull: true,
     }
-});
+},{
+    timestamps: false,
+  });
+
+

@@ -1,4 +1,6 @@
 import { Location } from "../models/Locations.js";
+import { User } from "../models/User.js";
+
 
 
 export async function generateInitialLocations(){
@@ -49,6 +51,69 @@ export async function getLocation(id){
         console.log(error.message);
         throw new Error("Error getting location");
         
+    }
+}
+
+//for users
+
+export async function addLocationToAnUser(userId, locationId) {
+    try {
+        const user = await User.findByPk(userId);
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        const location = await Location.findByPk(locationId);
+        if (!location) {
+            throw new Error("Location not found");
+        }
+
+        await user.addLocation(location);
+        return { message: "Location added to user successfully" };
+    } catch (error) {
+        console.log(error.message);
+        throw new Error("Error adding location to user");
+    }
+}
+
+
+export async function deleteLocationFromUser(userId, locationId) {
+    try {
+        const user = await User.findByPk(userId);
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        const location = await Location.findByPk(locationId);
+        if (!location) {
+            throw new Error("Location not found");
+        }
+
+        await user.removeLocation(location);
+        return { message: "Location removed from user successfully" };
+    } catch (error) {
+        console.log(error.message);
+        throw new Error("Error removing location from user");
+    }
+}
+
+
+export async function getLocationsForAnUser(userId) {
+    try {
+        const user = await User.findByPk(userId, {
+            include: {
+                model: Location,
+                as: 'locations'
+            }
+        });
+
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        return user.locations;
+    } catch (error) {
+        throw new Error(`Error fetching locations for user: ${error.message}`);
     }
 }
 
