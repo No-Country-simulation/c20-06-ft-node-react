@@ -23,7 +23,6 @@ export default async function WorkerPage({ params }) {
 }
 
 const ReviewsList = ({ reviews = [] }) => {
-
   return (
     <ul className={styles.reviewList}>
       {reviews.map((review) => (

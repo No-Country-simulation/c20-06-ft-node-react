@@ -1,11 +1,12 @@
 "use client"
-import { useState } from 'react'
+import { Button, useAuth, AuthProvider } from '@/components'
+
 import Link from "next/link"
-import { Button } from '@/components'
+
 import styles from './styles.module.css'
 
-const Header = () => {
-  const [isLoged, setIsLoged] = useState(true)
+const Component = () => {
+  const { isLoggedIn, logOut } = useAuth()
 
   return (
     <header className={styles.header}>
@@ -15,14 +16,14 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className={styles.login}>
+      <nav className={styles.login}>
         {
-          isLoged
-            ? <Button onClick={() => setIsLoged(false)}>LogOut</Button>
+          isLoggedIn
+            ? <Button onClick={logOut}>LogOut</Button>
             : (
               <>
-                <Button className={styles.signUp} onClick={() => setIsLoged(true)}>
-                  <Link href="/" className={styles.link}>
+                <Button className={styles.signUp}>
+                  <Link href="/sign-up" className={styles.link}>
                     Crear cuenta
                   </Link>
                 </Button>
@@ -35,8 +36,16 @@ const Header = () => {
               </>
             )
         }
-      </div>
+      </nav>
     </header>
+  )
+}
+
+const Header = () => {
+  return (
+    <AuthProvider>
+      <Component />
+    </AuthProvider>
   )
 }
 

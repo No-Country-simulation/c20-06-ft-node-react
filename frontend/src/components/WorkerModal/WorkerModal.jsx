@@ -1,9 +1,12 @@
 "use client"
 import { useState } from 'react'
-import Image from 'next/image'
-import styles from './styles.module.css'
-import Link from 'next/link'
+
 import { Button } from '@/components'
+
+import Image from 'next/image'
+import Link from 'next/link'
+
+import styles from './styles.module.css'
 
 const Carrousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -40,7 +43,7 @@ const Carrousel = () => {
   )
 }
 
-const WorkerModal = ({ isOpen, onClose, worker, service, className = '' }) => {
+const WorkerModal = ({ isOpen, onClose, worker, service }) => {
   if (!isOpen) return null
 
   return (
