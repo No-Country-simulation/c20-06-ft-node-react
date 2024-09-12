@@ -1,8 +1,9 @@
 import { Router } from "express";
 import { generateCategories, getAllCategories } from "../handlers/categoryHandler.js";
+import { VerifyToken } from "../middleware/jwtMiddleware.js";
 
 
 export const categoryRouter = Router();
 
-categoryRouter.get("/", getAllCategories);
+categoryRouter.get("/", VerifyToken,getAllCategories);
 categoryRouter.post("/generateCategories", generateCategories);

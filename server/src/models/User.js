@@ -47,14 +47,14 @@ export const User = sequelize.define(
       allowNull : false,
       defaultValue : 'client'
     },
-    locationId: {
-      type: DataTypes.INTEGER,
-      references: {
-          model: Location,
-          key: 'id',
-      },
-      allowNull: true,
-    }
+    // locationId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //       model: Location,
+    //       key: 'id',
+    //   },
+    //   allowNull: true,
+    // }
   },
   {
     modelName : 'Users',

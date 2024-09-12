@@ -4,11 +4,12 @@ import {
   removeFavoriteHandler,
   getUserFavoritesHandler,
 } from "../handlers/favoriteHandlers.js";
+import { VerifyToken } from "../middleware/jwtMiddleware.js";
 
 const favoriteRouters = express.Router();
 
-favoriteRouters.post("/", addFavoriteHandler);
-favoriteRouters.delete("/:id", removeFavoriteHandler);
-favoriteRouters.get("/users/:userId", getUserFavoritesHandler);
+favoriteRouters.post("/",VerifyToken ,addFavoriteHandler);
+favoriteRouters.delete("/:id",VerifyToken, removeFavoriteHandler);
+favoriteRouters.get("/users/:userId", VerifyToken,getUserFavoritesHandler);
 
 export default favoriteRouters;

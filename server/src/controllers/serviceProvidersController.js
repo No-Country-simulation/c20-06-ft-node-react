@@ -1,4 +1,5 @@
 import { Category } from "../models/Category.js";
+import { Location } from "../models/Locations.js";
 import { Service } from "../models/Services.js";
 import { User } from "../models/User.js";
 import  { ServiceProvider} from "./../models/ServiceProviders.js";
@@ -7,12 +8,13 @@ import  { ServiceProvider} from "./../models/ServiceProviders.js";
 export async function getAllServiceProviders() {
     try {
         const data = await ServiceProvider.findAll({include : [ 
-                { model : User, attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role','locationId'] },
-                {model : Service, as : 'services', through : { attributes : []}, include : [{
-                    model: Category,
-                    as: 'categories',
-                    attributes: ['id', 'name']
-                }]}
+                {
+                    model : User, 
+                    attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role'], 
+                    include : [{model : Location, as: 'locations', attributes :['city', 'state']}]
+                },
+                {model : Service, as : 'services', include : [{ model: Category,  as: 'categories', attributes: ['id', 'name']}]},
+                
             ]
         })
         return data
@@ -42,11 +44,16 @@ export async function createNewServiceProvider(userId, profileDescription, profi
 
 export async function getServiceProviderById(id) {
     try {
-        const data = await ServiceProvider.findByPk(id, { include : [
-                { model : User, attributes : ['id', 'email', 'last_name','first_name','phone_number', 'role'] },
-                {model : Service, as : 'services', through : { attributes : []}}
-            ]
-        });
+        const data = await ServiceProvider.findByPk(id, {include : [ 
+            {
+                model : User, 
+                attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role'], 
+                include : [{model : Location, as: 'locations', attributes :['city', 'state']}]
+            },
+            {model : Service, as : 'services', include : [{ model: Category,  as: 'categories', attributes: ['id', 'name']}]},
+            
+        ]
+    });
         return data
     } catch (error) {
         throw new Error(" Error gettin service provider")

@@ -1,8 +1,13 @@
 import { Router } from "express";
-import { formHandlers, deleteFormHandler } from "../handlers/formHandlers.js";
+import { deleteFormHandler } from "../handlers/formHandlers.js";
+import { createUser } from "../handlers/userHandlers.js";
+import { createServiceProvider } from "../handlers/serviceProviderHandler.js";
+import { VerifyToken } from "../middleware/jwtMiddleware.js";
+// import { createNewServiceProvider } from "../controllers/serviceProvidersController.js";
 
 const routerForm = Router();
-routerForm.post("/", formHandlers);
-routerForm.delete("/:id", deleteFormHandler);
+routerForm.post("/client", createUser);
+routerForm.post("/service_provider", createServiceProvider)
+routerForm.delete("/:id", VerifyToken ,deleteFormHandler);
 
 export default routerForm;

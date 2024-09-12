@@ -40,9 +40,9 @@ export async function getLocations() {
     }
 }
 
-export async function getLocation(id){
+export async function getLocation(ids){
     try {
-        const location = await Location.findByPk(id);
+        const location = await Location.findAll({where : {id : ids}});
         if(!location){
             throw new Error("Location not found");
         }
