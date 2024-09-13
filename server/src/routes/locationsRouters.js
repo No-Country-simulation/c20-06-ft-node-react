@@ -8,7 +8,7 @@ export const locationsRouter = Router();
 
 locationsRouter.get("/", VerifyToken,getAllLocations);
 locationsRouter.get("/:id",VerifyToken,getLocationById);
-locationsRouter.post("/generate_locations", verifyRole(['admin']),generateLocations);
+locationsRouter.post("/generate_locations",generateLocations);
 
 
 

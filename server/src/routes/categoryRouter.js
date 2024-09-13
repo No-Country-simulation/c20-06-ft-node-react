@@ -7,4 +7,4 @@ import { verifyRole } from "../middleware/roleMiddleware.js";
 export const categoryRouter = Router();
 
 categoryRouter.get("/", VerifyToken,getAllCategories);
-categoryRouter.post("/generateCategories", verifyRole(['admin']) ,generateCategories);
+categoryRouter.post("/generateCategories" ,generateCategories);

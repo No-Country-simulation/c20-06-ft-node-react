@@ -2,7 +2,6 @@
 
 export function verifyRole (allowedRoles){
     return (req, res ,next ) => {
-        const { id } = req.params;
         const role = req.user.role;
         if(!role) return res.status(403).json({ ok : false, message: 'Acces denied, you dont have permissions!'})
         if(allowedRoles.includes(role)){

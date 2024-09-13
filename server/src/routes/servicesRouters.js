@@ -13,7 +13,7 @@ import { verifyRole } from '../middleware/roleMiddleware.js'
 const servicesRouter = express.Router();
 
 servicesRouter.post("/", VerifyToken,verifyRole(['admin']),createServiceHandler);
-servicesRouter.post("/generateServices",verifyRole(['admin']),generateServices); // crea los primeros servicios.
+servicesRouter.post("/generateServices",generateServices); // crea los primeros servicios.
 
 servicesRouter.get("/", VerifyToken ,verifyRole(['client', 'service_provider', 'admin']),getAllServicesHandler);
 servicesRouter.get("/:id",VerifyToken ,verifyRole(['admin', "client", "service_provider"]),getServiceByIdHandler);
