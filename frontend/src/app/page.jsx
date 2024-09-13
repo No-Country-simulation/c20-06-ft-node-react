@@ -1,10 +1,13 @@
 "use client"
 import { useState, useMemo } from 'react'
 
-import { ServiceCard, Button } from '@/components'
+import { ServiceCard, Button, DialogBox } from '@/components'
 import { useFetchCategories, useFetchCities, useFetchServices } from '@/utils/hooks'
+import Img from '@/assets/ph_user.png'
+import Logo from '@/assets/logo.png'
 
 import styles from './styles.module.css'
+import Image from 'next/image'
 
 const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
   const handleCityChange = (e) => {
@@ -25,8 +28,11 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
     <section className={styles.container}>
       <article className={styles.card}>
         <figure className={styles.imageContainer}>
+          <Image src={Logo} alt="logo" width={70} height={70} />
         </figure>
-        NOMBRE APP, el mejor lugar para encontrar ayuda en los servicios que tu necesites
+        <p>
+          Changas<strong style={{ color: 'var(--primary-color)' }}>App</strong>, el mejor lugar para encontrar ayuda en los servicios que tu necesites
+        </p>
 
         <label className={styles.label} htmlFor="city">Ciudad:</label>
         <select className={styles.select} name="city" id="city" value={search.city} onChange={handleCityChange}>
@@ -57,6 +63,16 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
 
         <Button className={styles.button} onClick={onNext}>Siguiente</Button>
       </article>
+      <div className={styles.userContainer}>
+        <div className={styles.dialogContainer}>
+          <DialogBox>
+            <p>Usar ChangasApp me cambio la vida</p>
+          </DialogBox>
+        </div>
+        <div className={styles.userImageContainer}>
+          <Image className={styles.image} src={Img} alt="image" />
+        </div>
+      </div>
     </section>
   )
 }

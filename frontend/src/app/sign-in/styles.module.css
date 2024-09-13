@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background-color: var(--backgorund-color);
+  color: var(--text-color);
+}
+
+.loginLayout {
+  width: 450px;
+}

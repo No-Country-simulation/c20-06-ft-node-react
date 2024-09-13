@@ -1,0 +1,25 @@
+.dialogBox {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 300px;
+  position: relative;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 175px;
+}
+
+.text {
+  font-size: 14px;
+  color: #333;
+}
+
+.speakerIndicator {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f0f0f0;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+}

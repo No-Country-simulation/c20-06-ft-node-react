@@ -1,23 +1,31 @@
 import Link from "next/link";
+import { useMemo } from "react";
 
 const servicesOfCategory = (services, categoryName) => {
-  return services
-    .filter(service => service.categories.includes(categoryName))
-    .map(service => ({
+  const filteredServicesByCategory = services.filter(service => service.categories.includes(categoryName))
+
+  if (filteredServicesByCategory.length === 0) return null
+
+  const listOfServices = filteredServicesByCategory.map((service) => {
+    const name = service.name?.trim().replace(/^[^\w]+/, '');
+
+    return {
       ...service,
-      name: service.name.replace(/^[^\w]+/, '').trim()
-    }));
+      name
+    }
+  });
+
+  return listOfServices
 }
 
 const ServicesList = ({ category, services, city, closingCategory, styles }) => {
-  const filteredServices = servicesOfCategory(services, category.name)
+  const filteredServices = useMemo(() => servicesOfCategory(services, category.name), [services, category.name])
 
   return (
-    <ul className={
-      `${styles.services} ${closingCategory === category.id ? styles.servicesClosing : ''}`
-    }>
+    <ul className={`${styles.services} ${closingCategory === category.id ? styles.servicesClosing : ''}`}>
       {
-        filteredServices?.map(service => (
+        filteredServices?.sort((a, b) => a.name.localeCompare(b.name))
+          .map(service => (
             <li key={service.id} className={styles.service}>
               <Link href={`/service${service.to}?city=${city}`} className={styles.serviceLink}>
                 {service.name}

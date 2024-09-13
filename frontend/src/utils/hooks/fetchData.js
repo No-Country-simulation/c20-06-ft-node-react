@@ -35,6 +35,11 @@ export const useFetchWorkers = () => {
   return data.workers
 }
 
+export const useFetchOneWorker = (id) => {
+  const data = useFetchData(`/api/workers/${id}`);
+  return data.worker
+}
+
 export const useFetchCities = () => {
   const data = useFetchData('/api/cities');
   return data.cities

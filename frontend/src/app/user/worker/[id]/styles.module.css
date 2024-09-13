@@ -1,0 +1,22 @@
+.reviewList {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.reviewItem {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.reviewItem strong {
+  font-weight: bold;
+}
+
+.reviewItem p {
+  margin: 5px 0;
+}

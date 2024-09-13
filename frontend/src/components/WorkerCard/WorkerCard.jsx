@@ -1,12 +1,17 @@
+import Image from 'next/image'
 import styles from './styles.module.css'
 
 const WorkerCard = ({ worker }) => {
   return (
     <article className={styles.workerCard}>
       <figure className={styles.imageContainer}>
-        <div className={styles.image}>
-          {worker.name[0]}{worker.lastName[0]}
-        </div>
+        {
+          worker.picture
+            ? <Image src={worker.picture} alt={worker.name} />
+            : <div className={styles.image}>
+              {worker.name[0]}{worker.lastName[0]}
+            </div>
+        }
       </figure>
       <section className={styles.info}>
         <p>Nombre: {worker.name} {worker.lastName}</p>
