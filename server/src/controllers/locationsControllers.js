@@ -6,29 +6,66 @@ import { User } from "../models/User.js";
 export async function generateInitialLocations(){
     try {
         const data = await Location.bulkCreate([
-            { city: "Buenos Aires", state: "Buenos Aires", postalCode: "1000", latitude: -34.603722, longitude: -58.381592 },
-            { city: "Buenos Aires", state: "Buenos Aires", postalCode: "1406", latitude: -34.629714, longitude: -58.513532 },
-            { city: "Buenos Aires", state: "Buenos Aires", postalCode: "1425", latitude: -34.588035, longitude: -58.409897 }
-        ])
+            { "localidad": "San Isidro", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Tigre", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Vicente López", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "San Fernando", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Pilar", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Escobar", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "San Martín", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Malvinas Argentinas", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "José C. Paz", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Moreno", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Lomas de Zamora", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Lanús", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Avellaneda", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Quilmes", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Berazategui", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Florencio Varela", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Almirante Brown", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Esteban Echeverría", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Ezeiza", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Berisso", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "San Isidro", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Tigre", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Vicente López", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "San Fernando", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Pilar", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Escobar", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "San Martín", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Malvinas Argentinas", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "José C. Paz", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Moreno", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Lomas de Zamora", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Lanús", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Avellaneda", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Quilmes", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Berazategui", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Florencio Varela", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Almirante Brown", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Esteban Echeverría", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Ezeiza", "provincia": "Provincia Buenos Aires" },
+            { "localidad": "Berisso", "provincia": "Provincia Buenos Aires" }
+          ])
         return data;
     } catch (error) {
         throw new Error("Error generating locations")
     }
 }
 
-export async function findOrCreateLocation(city, state, postalCode, latitude, longitude) {
-    try {
-        const [location, created] = await Location.findOrCreate({
-            where: { city, state, postalCode }, // Buscar si ya existe la ubicación
-            defaults: { latitude, longitude }   // Si no existe, crear con estos valores
-        });
+// export async function findOrCreateLocation(city, state, postalCode, latitude, longitude) {
+//     try {
+//         const [location, created] = await Location.findOrCreate({
+//             where: { city, state, postalCode }, // Buscar si ya existe la ubicación
+//             defaults: { latitude, longitude }   // Si no existe, crear con estos valores
+//         });
 
-        return location;
-    } catch (error) {
-        console.log(error.message);
-        throw new Error("Error finding or creating location");
-    }
-}
+//         return location;
+//     } catch (error) {
+//         console.log(error.message);
+//         throw new Error("Error finding or creating location");
+//     }
+// }
 
 export async function getLocations() {
     try {

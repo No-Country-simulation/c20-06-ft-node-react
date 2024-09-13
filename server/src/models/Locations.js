@@ -12,26 +12,26 @@ export const Location = sequelize.define(
             allowNull : false,
             unique : true
         },
-    city: {
+    localidad: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    state: {
+    provincia: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    postalCode: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    latitude: {
-        type: DataTypes.FLOAT,
-        allowNull: true,
-    },
-    longitude: {
-        type: DataTypes.FLOAT,
-        allowNull: true,
-    }
+    // postalCode: {
+    //     type: DataTypes.STRING,
+    //     allowNull: false,
+    // },
+    // latitude: {
+    //     type: DataTypes.FLOAT,
+    //     allowNull: true,
+    // },
+    // longitude: {
+    //     type: DataTypes.FLOAT,
+    //     allowNull: true,
+    // }
 },{
     timestamps: false,
   });

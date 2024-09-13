@@ -16,6 +16,8 @@ export async function getUser(req, res) {
     const { id } = req.params;
     try {
         const user = await getUserById(id);
+        if(!user) return res.json({ ok : false})
+        delete user.dataValues.password
         res.json({ ok: true, user });
     } catch (error) {
         res.status(500).json({ ok: false, message: error.message });
