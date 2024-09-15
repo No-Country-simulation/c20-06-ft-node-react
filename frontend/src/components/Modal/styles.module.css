@@ -16,6 +16,7 @@
 
 .container {
   width: 30%;
+  max-height: 60%;
   background-color: white;
   border-radius: 10px;
   padding: 20px;
@@ -27,12 +28,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 10px;
 }
 
 .content {
-  padding: 15px 20px;
+  padding: 0 20px;
+  overflow-y: auto;
 }
 
 .hidden {
   display: none;
+}
+
+@media screen and (min-width: 958px) {
+  .container {
+    width: 60%;
+  }
 }

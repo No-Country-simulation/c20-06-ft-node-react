@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import styles from "./sideNavProvider.module.css"
 import { NavItemsProvider } from "@/config/sideNavProvider/navItems"
 import { SideNavItem } from "@/components"
+import CircleAvatar from "../CircleAvatar/CircleAvatar"
 
 const SideNavProvider = () => {
   const [isSideNavOpen, setSideNavOpen] = useState(true);
@@ -21,7 +22,7 @@ const SideNavProvider = () => {
           ? styles.sidenavOpen 
           : styles.sidenavClose}`}>
       <div className={styles.profile}>
-        <div>LP</div>
+        <CircleAvatar name='L' lastName='P' size='lg'/>
         <p>Luis Perez Rojas</p>
       </div>
       <div>

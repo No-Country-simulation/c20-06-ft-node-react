@@ -34,11 +34,15 @@
 
 .header label {
   font-size: 12px;
-  background-color: #807f7f;
+  background-color: var(--secondary-color);
   color: white;
   padding: 5px 7px;
   border-radius: 5px;
   text-align: center;
+}
+
+.header label:hover {
+  opacity: 0.5;
 }
 
 .content {

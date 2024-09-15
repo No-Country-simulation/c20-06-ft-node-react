@@ -19,6 +19,13 @@
     padding: 10px 15px;
     border-radius: 5px;
     border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+
+.header button:hover {
+    opacity: 0.5;
 }
 
 .content {

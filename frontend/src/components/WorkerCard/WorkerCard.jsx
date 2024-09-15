@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
 
-const WorkerCard = ({ worker }) => {
+const WorkerCard = ({ worker, onClick }) => {
   return (
-    <article className={styles.workerCard}>
+    <article className={styles.workerCard} onClick={()=>{
+      onClick()
+    }}>
       <figure className={styles.imageContainer}>
         {
           worker.picture

@@ -1,5 +1,5 @@
-import { X } from "lucide-react";
-import styles from "./styles.module.css";
+import { IoMdClose } from "react-icons/io"
+import styles from "./styles.module.css"
 
 const Modal = (props) => {
   const closeModal = () => {
@@ -19,7 +19,7 @@ const Modal = (props) => {
       <div className={styles.container} onClick={handleContentClick}>
         <div className={styles.header}>
           <p>{props.title}</p>
-          <X onClick={closeModal} />
+          <IoMdClose onClick={closeModal} />
         </div>
         <div className={styles.content}>{props.children}</div>
       </div>

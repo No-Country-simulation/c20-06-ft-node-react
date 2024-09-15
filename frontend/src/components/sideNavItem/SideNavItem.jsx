@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ChevronRight } from "lucide-react"
+import { FaChevronRight } from "react-icons/fa"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import styles from "./sideNavItem.module.css"
@@ -23,7 +23,7 @@ const SideNavItem = (props) => {
         {props.icon}
         <p>{props.name}</p>
       </div>
-      <ChevronRight />
+      <FaChevronRight />
     </Link>
   )
 }

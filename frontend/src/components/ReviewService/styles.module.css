@@ -1,0 +1,17 @@
+.containerReview {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 10px 0;
+}
+
+.stars .star{
+    margin-right: 15px;
+    cursor: pointer;
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.selectedStar {
+    fill: #e9be33;
+}

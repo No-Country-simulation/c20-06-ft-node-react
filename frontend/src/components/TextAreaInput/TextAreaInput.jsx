@@ -1,17 +1,17 @@
 import styles from "./styles.module.css"
 
-const TextInput = (props) => {
+const TextInput = ({label, rows, placeholder, error}) => {
     return (
         <div className={styles.textAreaInput}>
-            <label htmlFor={props.label.replace(" ","")}>{props.label}</label>
+            <label htmlFor={label.replace(" ","")}>{label}</label>
             <textarea 
                 name=""
-                id={props.label.replace(" ","")}
-                placeholder={props.placeholder}
-                rows={props.rows}
+                id={label.replace(" ","")}
+                placeholder={placeholder}
+                rows={rows}
             >
             </textarea>
-            {props.error ? <p>{props.error}</p>: null}
+            {error ? <p>{error}</p>: null}
         </div>
     )
 }

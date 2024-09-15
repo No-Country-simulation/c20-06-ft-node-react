@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 import { useState } from "react";
 import Image from 'next/image';
 
-const ImageInput = (props) => {
+const ImageInput = ({label, message, error}) => {
 
   const [selectedImages, setSelectedImages] = useState([]);
 
@@ -30,10 +30,10 @@ const ImageInput = (props) => {
 
   return (
     <div className={styles.imageInput}>
-      <label htmlFor={props.label.replace(" ", "")}>{props.label}</label>
+      <label htmlFor={label.replace(" ", "")}>{label}</label>
       <div className={styles.containerImage}>
         <div className={styles.header}>
-          <p className={styles.headerTitle}>{props.message ?? 'Mensaje llamativo'}</p>
+          <p className={styles.headerTitle}>{message ?? 'Mensaje llamativo'}</p>
           <label htmlFor="fileInput">Subir foto</label>
           <input
             type="file"
@@ -66,7 +66,7 @@ const ImageInput = (props) => {
           ))}
         </div>
       </div>
-      {props.error ? <p>{props.error}</p> : null}
+      {error ? <p>{error}</p> : null}
     </div>
   )
 }
