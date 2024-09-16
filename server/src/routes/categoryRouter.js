@@ -6,5 +6,5 @@ import { verifyRole } from "../middleware/roleMiddleware.js";
 
 export const categoryRouter = Router();
 
-categoryRouter.get("/", VerifyToken,getAllCategories);
+categoryRouter.get("/",getAllCategories);
 categoryRouter.post("/generateCategories" ,generateCategories);

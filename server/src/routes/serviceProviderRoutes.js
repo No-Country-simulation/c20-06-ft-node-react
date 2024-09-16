@@ -4,7 +4,7 @@ import { VerifyToken } from "../middleware/jwtMiddleware.js";
 
 export const serviceProviderRouter = Router();
 
-serviceProviderRouter.get("/", VerifyToken,getAll);
+serviceProviderRouter.get("/",getAll);
 serviceProviderRouter.post("/", createServiceProvider);
 serviceProviderRouter.get("/:id", VerifyToken,getById );
 

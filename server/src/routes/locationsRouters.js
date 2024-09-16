@@ -6,7 +6,7 @@ import { verifyRole } from "../middleware/roleMiddleware.js";
 
 export const locationsRouter = Router();
 
-locationsRouter.get("/", VerifyToken,getAllLocations);
+locationsRouter.get("/",getAllLocations);
 locationsRouter.get("/:id",VerifyToken,getLocationById);
 locationsRouter.post("/generate_locations",generateLocations);
 
