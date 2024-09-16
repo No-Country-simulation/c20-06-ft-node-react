@@ -2,17 +2,13 @@
 
 import { useState } from 'react'
 import { LoginLayout, Button, TextInput } from "@/components"
+import { validateEmail } from '@/utils/functions'
 import styles from './styles.module.css'
 
 const Page = () => {
   const [form, setForm] = useState({ email: '', password: '' })
   const [message, setMessage] = useState('')
   const [error, setError] = useState(false)
-
-  const validateEmail = (email) => {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault()

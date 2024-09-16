@@ -1,11 +1,11 @@
 "use client"
-import { Button, useAuth, AuthProvider } from '@/components'
+import { Button, useAuth } from '@/components'
 
 import Link from "next/link"
 
 import styles from './styles.module.css'
 
-const Component = () => {
+const Header = () => {
   const { isLoggedIn, logOut } = useAuth()
 
   return (
@@ -38,14 +38,6 @@ const Component = () => {
         }
       </nav>
     </header>
-  )
-}
-
-const Header = () => {
-  return (
-    <AuthProvider>
-      <Component />
-    </AuthProvider>
   )
 }
 

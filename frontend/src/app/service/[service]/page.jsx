@@ -23,7 +23,6 @@ const Servicio = () => {
 
   const workers = useFetchWorkers()
 
-
   const filteredWorkers = useMemo(() => {
     return workers?.filter((worker) =>
       worker.city.toLowerCase() === city.toLowerCase() &&

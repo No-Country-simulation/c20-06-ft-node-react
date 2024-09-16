@@ -2,13 +2,18 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request) {
   try {
-    const { user, password } = await request.json();
+    const { email, password } = await request.json();
 
-    console.log('body', user, password)
+    console.log('body', email, password)
+
+    if (!email || !password) {
+      return NextResponse.json({ error: 'Todos los campos son obligatorios' }, { status: 400 });
+    }
 
     const login = {
       status: 200,
-      message: 'Login exitoso'
+      message: 'Login exitoso',
+      token: 123456789
     }
 
     return NextResponse.json(login);

@@ -1,50 +1,36 @@
 "use client"
+import Cookies from 'js-cookie';
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [authToken, setAuthToken] = useState(null);
 
   useEffect(() => {
-    const checkToken = () => {
-      if (typeof window !== 'undefined') {
-        const token = localStorage.getItem('authToken');
-        if (token) {
-          setIsLoggedIn(true);
-        } else {
-          setIsLoggedIn(false);
-        }
-      }
-    };
-
-    checkToken();
-
-    window.addEventListener('storage', checkToken);
-
-    return () => {
-      window.removeEventListener('storage', checkToken);
-    };
+    const token = Cookies.get('authToken');
+    if (token) {
+      setAuthToken(token);
+    }
   }, []);
 
-  const logIn = () => {
-    console.log('logIn');
-    const token = 'token';
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('authToken', token);
-      setIsLoggedIn(true);
-    }
+  const logIn = (token) => {
+    Cookies.set('authToken', token, {
+      expires: 7,
+      path: '/',
+      secure: true,
+      sameSite: 'Strict'
+    });
+    setAuthToken(token);
   };
 
   const logOut = () => {
-    if (typeof window !== 'undefined') {
-      setIsLoggedIn(false);
-      localStorage.removeItem('authToken');
-    }
+    Cookies.remove('authToken', { path: '/' });
+    setAuthToken(null);
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, logIn, logOut }}>
+    <AuthContext.Provider value={{ authToken, logIn, logOut, isLoggedIn: !!authToken }}>
       {children}
     </AuthContext.Provider>
   );

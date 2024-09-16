@@ -10,3 +10,16 @@
 .loginLayout {
   width: 450px;
 }
+
+.form  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input {
+  margin: 0;
+  
+}
