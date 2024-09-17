@@ -11,7 +11,7 @@ export async function getAllServiceProviders() {
                 {
                     model : User, 
                     attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role'], 
-                    include : [{model : Location, as: 'locations', attributes :['city', 'state']}]
+                    include : [{model : Location, as: 'locations', attributes :['localidad', 'provincia']}]
                 },
                 {model : Service, as : 'services', include : [{ model: Category,  as: 'categories', attributes: ['id', 'name']}]},
                 
@@ -48,7 +48,7 @@ export async function getServiceProviderById(id) {
             {
                 model : User, 
                 attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role'], 
-                include : [{model : Location, as: 'locations', attributes :['city', 'state']}]
+                include : [{model : Location, as: 'locations', attributes :['localidad', 'provincia']}]
             },
             {model : Service, as : 'services', include : [{ model: Category,  as: 'categories', attributes: ['id', 'name']}]},
             
