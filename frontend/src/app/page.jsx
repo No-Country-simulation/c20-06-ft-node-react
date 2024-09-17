@@ -92,8 +92,8 @@ const Step2 = ({ services, search, onPrev }) => {
       <h3 className={styles.title}>Aqui podras encontrar distintos servicios, escoge el que necesites</h3>
       <section className={styles.servicesContainer}>
         {
-          filteredServices.length > 0 ? (
-            filteredServices.map(service => (
+          filteredServices?.length > 0 ? (
+            filteredServices?.map(service => (
               <ServiceCard className={styles.serviceCard} key={service.id} service={service} query={search} />
             ))
           ) : (

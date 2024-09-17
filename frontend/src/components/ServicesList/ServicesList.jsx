@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 
 const servicesOfCategory = (services, categoryName) => {
-  const filteredServicesByCategory = services.filter(service => service.categories.includes(categoryName))
+  const filteredServicesByCategory = services?.filter(service => service.categories.includes(categoryName))
 
   if (filteredServicesByCategory.length === 0) return null
 
