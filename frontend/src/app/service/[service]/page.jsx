@@ -25,7 +25,7 @@ const Servicio = () => {
 
   const filteredWorkers = useMemo(() => {
     return workers?.filter((worker) =>
-      worker.city.toLowerCase() === city.toLowerCase() &&
+      // worker.city.toLowerCase() === city.toLowerCase() &&
       worker.services.some((services) => services.toLowerCase() === service.toLowerCase())
     )
   }, [workers, city, service]);

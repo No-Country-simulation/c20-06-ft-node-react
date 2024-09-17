@@ -39,8 +39,8 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
           <option value="">Todos</option>
           {
             cities?.map((city) => (
-              <option key={city.id} value={city.name}>
-                {city.name}
+              <option key={city.id} value={city.localidad}>
+                {city.localidad} id: {city.id}
               </option>
             ))
           }
@@ -50,14 +50,11 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
         <select className={styles.select} name="category" id="category" value={search.category} onChange={handleCategoryChange}>
           <option value="">Todos</option>
           {
-            categories?.filter(category =>
-              services?.some(service => service.categories.includes(category.name))
-            )
-              .map(category => (
-                <option key={category.id} value={category.name}>
-                  {category.name}
-                </option>
-              ))
+            categories?.map(category => (
+              <option key={category.id} value={category.name}>
+                {category.name}
+              </option>
+            ))
           }
         </select>
 

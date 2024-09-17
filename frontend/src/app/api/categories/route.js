@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
-import categories from './categories.json';
+import { fetchAllData } from '@/utils/functions'
 
 export async function GET() {
-  return NextResponse.json(categories);
+  const { data, status, error } = await fetchAllData('http://localhost:3000/categories')
+
+  if (error) return NextResponse.json({ error }, { status: 500 })
+
+  return NextResponse.json({ categories: data.categories }, { status })
 }

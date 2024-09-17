@@ -8,9 +8,9 @@
       "city": "Buenos Aires",
       "id": 1,
       "services": [
-        "Electricista",
+        "Electricidad",
         "Plomero",
-        "Carpintero"
+        "Carpinteria"
       ],
       "description": "Especialista en reparaciones eléctricas, plomería y carpintería con más de 10 años de experiencia en el mercado. Trabajo rápido y eficiente.",
       "reviews": [
@@ -108,7 +108,7 @@
       "city": "Buenos Aires",
       "id": 4,
       "services": [
-        "Electricista",
+        "Electricidad",
         "Gasista"
       ],
       "description": "Técnico certificado en instalaciones eléctricas y de gas. Garantizo seguridad y cumplimiento de todas las normativas vigentes.",

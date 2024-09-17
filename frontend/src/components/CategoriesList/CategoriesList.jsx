@@ -20,13 +20,13 @@ const CategoriesList = ({ categories, services, city, styles }) => {
     }
   };
 
-  const filteredCategories = categories?.filter(category =>
-    services?.some(service => service.categories.includes(category.name))
-  );
+  // const filteredCategories = categories?.filter(category =>
+  //   services?.some(service => service.categories.includes(category.name))
+  // );
 
   return (
     <ul className={styles.categories}>
-      {filteredCategories?.map(category => (
+      {categories?.map(category => (
         <li key={category.id} className={styles.category}>
           <button
             onClick={() => handleCategoryClick(category.id)}
