@@ -32,13 +32,13 @@ export const useFetchCategories = () => {
 
 export const useFetchWorkers = () => {
   const { workers } = useFetchData('/api/workers');
-  
+
   return workers
 }
 
 export const useFetchOneWorker = (id) => {
-  const data = useFetchData(`/api/workers/${id}`);
-  return data.worker
+  const { worker } = useFetchData(`/api/workers/${id}`);
+  return worker
 }
 
 export const useFetchCities = () => {
@@ -47,6 +47,6 @@ export const useFetchCities = () => {
 }
 
 export const useFetchServices = () => {
-  const data = useFetchData('/api/services');
-  return data.services
+  const { services } = useFetchData('/api/services');
+  return services
 }

@@ -1,13 +1,9 @@
 .button {
-  /* background-color: var(--backgorund-color); */
-  /* color: var(--text-color); */
-  border: 1px solid var(--text-color);
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
   margin-top: 20px;
   transition: 0.5s;
-
 
   &:active {
     transform: scale(0.9);

@@ -40,7 +40,7 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
           {
             cities?.map((city) => (
               <option key={city.id} value={city.localidad}>
-                {city.localidad} id: {city.id}
+                {city.localidad}
               </option>
             ))
           }
@@ -76,9 +76,9 @@ const Step1 = ({ search, setSearch, cities, categories, services, onNext }) => {
 
 const Step2 = ({ services, search, onPrev }) => {
   const filteredServices = useMemo(() => {
-    if (search.city && search.category) {
+    if (search.category) {
       return services?.filter(service =>
-        service.categories.includes(search.category)
+        service.categories.some(category => category.name === search.category)
       );
     }
     return services;

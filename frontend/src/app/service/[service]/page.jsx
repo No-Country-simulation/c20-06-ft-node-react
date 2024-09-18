@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import { useFetchWorkers } from '@/utils/hooks';
 import { WorkerCard, WorkerModal } from '@/components'
+import { NormalizeText } from '@/utils/functions'
 
 import styles from './styles.module.css'
 
@@ -18,7 +19,7 @@ const Servicio = () => {
   };
 
   const searchParams = useSearchParams();
-  const service = usePathname().split('/')[2];
+  const service = usePathname().split('/')[2].split('%20').join(' ');
   const city = searchParams.get('city') || '';
 
   const workers = useFetchWorkers()
@@ -26,14 +27,14 @@ const Servicio = () => {
   const filteredWorkers = useMemo(() => {
     return workers?.filter((worker) =>
       // worker.city.toLowerCase() === city.toLowerCase() &&
-      worker.services.some((services) => services.toLowerCase() === service.toLowerCase())
+      worker.services.some((services) => NormalizeText(services) === NormalizeText(service))
     )
   }, [workers, city, service]);
 
 
   return (
     <main className={styles.main}>
-      Resultados para servicios de {service.split('-').join(' ')} en {city}
+      Resultados para servicios de {service.split('-').join(' ')} {city ? `en ${city}` : ''}
       <section className={styles.workersContainer}>
         {
           filteredWorkers?.length === 0

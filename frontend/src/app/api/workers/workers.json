@@ -198,6 +198,450 @@
           "user": "Lautaro Pérez"
         }
       ]
+    },
+    {
+      "name": "Ana",
+      "lastName": "González",
+      "rating": 4.8,
+      "reviewsCount": 95,
+      "city": "CABA",
+      "id": 7,
+      "services": [
+        "Peluquería",
+        "Manicura",
+        "Pedicura"
+      ],
+      "description": "Profesional en belleza con amplia experiencia en peluquería y tratamientos de manicura y pedicura. Atención personalizada y resultados excelentes.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Un servicio de peluquería excepcional, muy contenta con el resultado.",
+          "user": "Laura Fernández"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "La manicura quedó muy bien, aunque el tiempo de espera fue un poco largo.",
+          "user": "Rosa López"
+        },
+        {
+          "id": 3,
+          "rating": 5,
+          "comment": "El mejor lugar para pedicura en la ciudad, atención y profesionalismo garantizados.",
+          "user": "Claudia Morales"
+        }
+      ]
+    },
+    {
+      "name": "Carlos",
+      "lastName": "Martínez",
+      "rating": 4.3,
+      "reviewsCount": 80,
+      "city": "La Plata",
+      "id": 8,
+      "services": [
+        "Fontanero",
+        "Gasista",
+        "Electricidad"
+      ],
+      "description": "Especialista en fontanería, gas y electricidad. Ofrece soluciones integrales para cualquier problema en el hogar.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4,
+          "comment": "Buen trabajo, pero llegó un poco tarde.",
+          "user": "Luis Pérez"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "Resolvió un problema complicado con la electricidad rápidamente.",
+          "user": "Mónica Rodríguez"
+        },
+        {
+          "id": 3,
+          "rating": 4,
+          "comment": "Servicio eficiente, aunque el costo fue un poco alto.",
+          "user": "Nora Silva"
+        }
+      ]
+    },
+    {
+      "name": "Lucía",
+      "lastName": "Rodríguez",
+      "rating": 4.7,
+      "reviewsCount": 110,
+      "city": "Mendoza",
+      "id": 9,
+      "services": [
+        "Pintura",
+        "Decoración",
+        "Durlock"
+      ],
+      "description": "Experta en pintura, decoración y trabajos de durlock. Proyectos personalizados y resultados de alta calidad.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Transformó mi casa con su excelente trabajo en decoración y pintura.",
+          "user": "Fernando González"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "Muy buena en lo que hace, aunque se demoró un poco en terminar.",
+          "user": "Santiago Fernández"
+        },
+        {
+          "id": 3,
+          "rating": 4,
+          "comment": "Trabajo sólido y profesional, pero la comunicación podría mejorar.",
+          "user": "Gabriela Ruiz"
+        }
+      ]
+    },
+    {
+      "name": "Martín",
+      "lastName": "Sánchez",
+      "rating": 4.6,
+      "reviewsCount": 70,
+      "city": "Rosario",
+      "id": 10,
+      "services": [
+        "Mantenimiento de piletas",
+        "Cortador de pasto",
+        "Instalación de riegos"
+      ],
+      "description": "Especialista en mantenimiento de piletas, jardinería y sistemas de riego. Servicio profesional y eficiente.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4.5,
+          "comment": "El mantenimiento de mi pileta quedó impecable.",
+          "user": "Ana Castro"
+        },
+        {
+          "id": 2,
+          "rating": 4.7,
+          "comment": "Excelente trabajo en el jardín y la instalación de riegos.",
+          "user": "Carlos Núñez"
+        },
+        {
+          "id": 3,
+          "rating": 4,
+          "comment": "Buena atención, aunque el trabajo tardó un poco más de lo esperado.",
+          "user": "Silvia Vega"
+        }
+      ]
+    },
+    {
+      "name": "Valeria",
+      "lastName": "Moreno",
+      "rating": 4.9,
+      "reviewsCount": 65,
+      "city": "San Juan",
+      "id": 11,
+      "services": [
+        "Manicura",
+        "Masajes",
+        "Kinesiología"
+      ],
+      "description": "Profesional en kinesiología, manicura y masajes con un enfoque en el bienestar integral. Ofrece un servicio personalizado y altamente efectivo.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Las sesiones de kinesiología me ayudaron muchísimo con mi recuperación.",
+          "user": "Alejandro Martínez"
+        },
+        {
+          "id": 2,
+          "rating": 4.8,
+          "comment": "Muy buena en manicura y masajes, pero el horario de atención es limitado.",
+          "user": "Gabriela Fernández"
+        },
+        {
+          "id": 3,
+          "rating": 4.9,
+          "comment": "Excelente profesional, muy satisfecha con el servicio.",
+          "user": "Natalia Gómez"
+        }
+      ]
+    },
+    {
+      "name": "Jorge",
+      "lastName": "Fernández",
+      "rating": 4.4,
+      "reviewsCount": 90,
+      "city": "Tucumán",
+      "id": 12,
+      "services": [
+        "Cambio de aceites",
+        "Frenos",
+        "Servicio completo"
+      ],
+      "description": "Especialista en mantenimiento automotriz, incluyendo cambio de aceites, frenos y servicio completo. Con años de experiencia en el sector.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4,
+          "comment": "El servicio fue bueno, pero la espera fue un poco larga.",
+          "user": "Raúl López"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "Trabajo profesional en el cambio de aceites y frenos, recomendables.",
+          "user": "Beatriz Silva"
+        },
+        {
+          "id": 3,
+          "rating": 4.3,
+          "comment": "Buen servicio, aunque podrían mejorar la puntualidad.",
+          "user": "Héctor Sánchez"
+        }
+      ]
+    },
+    {
+      "name": "Marta",
+      "lastName": "López",
+      "rating": 4.6,
+      "reviewsCount": 75,
+      "city": "Salta",
+      "id": 13,
+      "services": [
+        "Tapicero",
+        "Decoración",
+        "Mantenimiento de piletas"
+      ],
+      "description": "Experta en tapicería, decoración y mantenimiento de piletas. Brinda un servicio detallado y de alta calidad.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4.7,
+          "comment": "El trabajo de tapicería quedó excelente, mi sofá parece nuevo.",
+          "user": "Javier Martínez"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "Muy buena en decoración, pero el mantenimiento de la pileta fue lento.",
+          "user": "Patricia Álvarez"
+        },
+        {
+          "id": 3,
+          "rating": 4.6,
+          "comment": "Buena atención y resultados en general.",
+          "user": "Rodrigo Pérez"
+        }
+      ]
+    },
+    {
+      "name": "Sofía",
+      "lastName": "Gómez",
+      "rating": 4.7,
+      "reviewsCount": 82,
+      "city": "Corrientes",
+      "id": 14,
+      "services": [
+        "Pintura",
+        "Durlock",
+        "Carpintería"
+      ],
+      "description": "Especialista en pintura, durlock y carpintería. Ofrece trabajos personalizados con gran atención al detalle.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4.8,
+          "comment": "Excelente trabajo de pintura y carpintería, muy profesional.",
+          "user": "Luis Ramírez"
+        },
+        {
+          "id": 2,
+          "rating": 4.6,
+          "comment": "El durlock quedó perfecto, pero se demoró un poco en comenzar.",
+          "user": "Mónica Pérez"
+        },
+        {
+          "id": 3,
+          "rating": 4.7,
+          "comment": "Muy buena atención y resultados.",
+          "user": "Andrés Fernández"
+        }
+      ]
+    },
+    {
+      "name": "Ricardo",
+      "lastName": "Pérez",
+      "rating": 4.5,
+      "reviewsCount": 68,
+      "city": "San Luis",
+      "id": 15,
+      "services": [
+        "Electricidad",
+        "Gasista",
+        "Cerradura"
+      ],
+      "description": "Profesional en electricidad, gas y cerraduras. Brinda soluciones rápidas y efectivas para problemas en el hogar.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4.6,
+          "comment": "Muy eficiente en la reparación de cerraduras y problemas eléctricos.",
+          "user": "Ana María Silva"
+        },
+        {
+          "id": 2,
+          "rating": 4.4,
+          "comment": "Buen servicio, aunque el costo fue un poco alto.",
+          "user": "Fernando López"
+        },
+        {
+          "id": 3,
+          "rating": 4.5,
+          "comment": "Trabajo rápido y profesional.",
+          "user": "Mariana González"
+        }
+      ]
+    },
+    {
+      "name": "Carlos",
+      "lastName": "Domínguez",
+      "rating": 4.8,
+      "reviewsCount": 56,
+      "city": "Rosario",
+      "id": 16,
+      "services": [
+        "Cortador de pasto",
+        "Instalación de riegos",
+        "Poda de árboles"
+      ],
+      "description": "Experto en mantenimiento de jardines, incluyendo corte de pasto, instalación de sistemas de riego y poda de árboles. Servicios rápidos y eficientes para mantener tu jardín impecable.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Mi jardín nunca estuvo mejor, el sistema de riego es excelente.",
+          "user": "Ignacio Torres"
+        },
+        {
+          "id": 2,
+          "rating": 4.7,
+          "comment": "Muy buen trabajo podando los árboles, y el césped quedó perfecto.",
+          "user": "Mariana Castro"
+        },
+        {
+          "id": 3,
+          "rating": 4.9,
+          "comment": "Profesional y eficiente, lo recomiendo mucho.",
+          "user": "Santiago Fernández"
+        }
+      ]
+    },
+    {
+      "name": "Roberto",
+      "lastName": "García",
+      "rating": 4.6,
+      "reviewsCount": 73,
+      "city": "La Plata",
+      "id": 17,
+      "services": [
+        "Mantenimiento de piletas",
+        "Cortador de pasto",
+        "Instalación de riegos"
+      ],
+      "description": "Especialista en el mantenimiento de piletas y jardines. Ofrece servicios integrales para mantener espacios exteriores en perfecto estado.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4.7,
+          "comment": "Muy bueno en el mantenimiento de piletas, servicio muy completo.",
+          "user": "Carla Gutiérrez"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "El césped quedó impecable, aunque se demoró un poco en la instalación del riego.",
+          "user": "Matías López"
+        },
+        {
+          "id": 3,
+          "rating": 4.6,
+          "comment": "Buen servicio y atención, recomendable.",
+          "user": "Verónica Alvarez"
+        }
+      ]
+    },
+    {
+      "name": "Luciano",
+      "lastName": "Ramírez",
+      "rating": 4.7,
+      "reviewsCount": 88,
+      "city": "Mendoza",
+      "id": 18,
+      "services": [
+        "Auxilio mecánico",
+        "Cambio de aceites",
+        "Frenos",
+        "Servicio completo"
+      ],
+      "description": "Mecánico especializado en auxilio en ruta, cambio de aceites, frenos y servicio completo de vehículos. Atención rápida y efectiva para cualquier inconveniente automotriz.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Me salvó en plena ruta, servicio rápido y profesional.",
+          "user": "Fernando Gómez"
+        },
+        {
+          "id": 2,
+          "rating": 4.6,
+          "comment": "Muy buen servicio completo, mi auto quedó en perfectas condiciones.",
+          "user": "Claudia Ríos"
+        },
+        {
+          "id": 3,
+          "rating": 4.8,
+          "comment": "Excelente atención, muy recomendable.",
+          "user": "Juan Pablo Herrera"
+        }
+      ]
+    },
+    {
+      "name": "Esteban",
+      "lastName": "Paredes",
+      "rating": 4.5,
+      "reviewsCount": 60,
+      "city": "Mar del Plata",
+      "id": 19,
+      "services": [
+        "Tapicero",
+        "Auxilio mecánico",
+        "Cambio de aceites",
+        "Frenos"
+      ],
+      "description": "Profesional en tapicería y mecánica automotriz, especializado en auxilio en ruta, frenos y cambio de aceites. Brinda soluciones tanto en el interior como exterior del vehículo.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4.6,
+          "comment": "El trabajo de tapicería fue excelente, le dio nueva vida a mi auto.",
+          "user": "Luciana Méndez"
+        },
+        {
+          "id": 2,
+          "rating": 4.4,
+          "comment": "Buen servicio mecánico, aunque se tardó un poco en el cambio de aceites.",
+          "user": "Sergio Bustos"
+        },
+        {
+          "id": 3,
+          "rating": 4.5,
+          "comment": "Atención rápida en la ruta, muy agradecido.",
+          "user": "Marcos Luna"
+        }
+      ]
     }
   ]
 }

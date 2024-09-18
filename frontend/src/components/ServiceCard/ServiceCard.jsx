@@ -1,18 +1,12 @@
 import styles from "./styles.module.css"
 import Link from "next/link"
+import { NormalizeText } from "@/utils/functions"
 
 const ServiceCard = ({ service, query = null, className = '' }) => {
 
-  const normalizeTitle = (title) => {
-    return title
-      .normalize("NFD") // Normaliza el texto
-      .replace(/[\u0300-\u036f]/g, "") // Elimina los acentos
-      .toLowerCase(); // Convierte a minúsculas
-  }
-
   const link = query
-    ? `/service/${normalizeTitle(service.title)}?city=${query.city}`
-    : `/service/${normalizeTitle(service.title)}`
+    ? `/service/${NormalizeText(service.title)}?city=${query.city}`
+    : `/service/${NormalizeText(service.title)}`
 
   return (
     <button

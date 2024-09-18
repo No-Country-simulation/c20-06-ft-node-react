@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useMemo } from "react";
+import { NormalizeText } from "@/utils/functions";
 
 const servicesOfCategory = (services, categoryName) => {
   const filteredServicesByCategory = services?.filter(service =>
@@ -10,18 +11,11 @@ const servicesOfCategory = (services, categoryName) => {
 
   const listOfServices = filteredServicesByCategory.map((service) => {
     const name = service.title?.trim().replace(/^[^\w]+/, '');
-    
-    const normalizeTitle = (title) => {
-      return title
-        .normalize("NFD") // Normaliza el texto
-        .replace(/[\u0300-\u036f]/g, "") // Elimina los acentos
-        .toLowerCase(); // Convierte a minúsculas
-    }
 
     return {
       ...service,
       title: name,
-      to: normalizeTitle(name)
+      to: NormalizeText(name)
     }
   });
 

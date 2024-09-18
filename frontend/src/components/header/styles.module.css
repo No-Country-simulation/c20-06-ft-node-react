@@ -8,6 +8,10 @@
   border-bottom: 1px solid var(--text-color);
   height: 10vh;
   box-shadow: 0 0 10px var(--text-color);
+
+  @media (max-width: 425px) {
+    padding: 10px;
+  }
 }
 
 .title {
@@ -17,6 +21,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 425px) {
+    width: 30%;
+  }
 }
 
 .login {
@@ -25,6 +33,11 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  @media (max-width: 425px) {
+    width: 60%;
+    gap: 10px;
+  }
 }
 
 button.signUp {

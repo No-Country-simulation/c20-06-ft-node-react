@@ -16,7 +16,21 @@ export async function GET() {
       return data.locations.find(city => city.localidad === localidad);
     });
 
-  const cities = uniqueCities?.sort((a, b) => a.localidad.localeCompare(b.localidad));
+
+  let cities = uniqueCities?.sort((a, b) => a.localidad.localeCompare(b.localidad));
+
+  cities = cities?.map(city => {
+    if (city.provincia === 'Provincia Buenos Aires') {
+      return {
+        ...city,
+        provincia: 'Buenos Aires'
+      }
+    }
+    return city
+  })
+
+
+  console.log(cities)
 
   return NextResponse.json({ cities }, { status });
 }
