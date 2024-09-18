@@ -1,9 +1,20 @@
+
+
+
+  .sidebar {
+    display: block;
+  }
+
+  .containerBtn {
+    display: none;
+  }
 .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--backgorund-color);
+
   color: var(--text-color);
   width: 300px;
   padding: 20px;
@@ -142,3 +153,38 @@
     transform: translateY(-10px);
   }
 }
+
+
+
+
+@media screen and (max-width: 768px){
+
+
+
+  .sidebar{
+    display: none;
+    position: absolute;
+    z-index: 500;
+    background-color: #fff;
+    height: 100vh;
+  }
+  .open {
+    display: block; /* Mostrar cuando el menú está abierto en móvil */
+  }
+  
+  .containerBtn{
+    display: block;
+    position: relative;
+    top: 8px;
+    left: 8px;
+    background-color: #E5D4CE;
+    height: fit-content;
+    border-radius: 5px;
+    z-index: 1000;
+    border: 1px solid #E90066;
+  
+  }
+  }
+
+
+

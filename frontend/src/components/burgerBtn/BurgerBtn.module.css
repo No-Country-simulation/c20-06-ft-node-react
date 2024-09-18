@@ -1,0 +1,81 @@
+
+  .navIcon {
+    width: 25px;
+    height: 25px;
+    margin: 3px 3px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+  z-index: 1000;
+
+  }
+  .navIcon span {
+    background-color: #E90066;
+    position: absolute;
+    border-radius: 5px;
+    height: 1.5px;
+    user-select: none;
+  }
+  .navIcon span:nth-child(1) {
+    width: 100%;
+    display: block;
+    top: 3px;
+    left: 0px;
+  }
+  .navIcon span:nth-child(2) {
+    width: 100%;
+    display: block;
+    top: 14px;
+    left: 0px;
+  }
+  .navIcon span:nth-child(3) {
+    width: 100%;
+    display: block;
+    bottom: 0px;
+    left: 0px;
+  }
+  .navIcon:not(.open):hover span:nth-child(1) {
+    width: 100%;
+    height: 2px;
+    display: block;
+    top: 2px;
+    left: 0px;
+    transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  }
+  .navIcon:not(.open):hover span:nth-child(2) {
+    width: 100%;
+    height: 2px;
+    display: block;
+    top: 14px;
+    left: 0px;
+    transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  }
+  .navIcon:not(.open):hover span:nth-child(3) {
+    width: 100%;
+    height: 2px;
+    display: block;
+    bottom: -2px;
+    left: 0px;
+    transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  }
+  .navIcon.open span:nth-child(1) {
+    left: -2px;
+    top: 14px;
+    width: 30px;
+    transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    transform: rotate(45deg);
+    transition-delay: 150ms;
+  }
+  .navIcon.open span:nth-child(2) {
+    transform: scale(0);
+    transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+
+  }
+  .navIcon.open span:nth-child(3) {
+    left: -2px;
+    bottom: 10px;
+    width: 30px;
+    transition: 0.2s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    transform: rotate(-45deg);
+    transition-delay: 150ms;
+  }
