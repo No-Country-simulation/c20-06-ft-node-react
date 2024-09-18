@@ -13,7 +13,7 @@ import { locationsRouter } from "./locationsRouters.js";
 const router = express.Router();
 router.use("/register", formRouters);
 router.use("/login", loginRouters);
-router.use("/", servicesRouters);
+router.use("/services", servicesRouters);
 router.use("/service_providers", serviceProviderRouter);
 router.use("/users", userRouter);
 router.use("/reports", reportRouter)

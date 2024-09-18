@@ -1,0 +1,203 @@
+{
+  "workers": [
+    {
+      "name": "Juan",
+      "lastName": "Perez",
+      "rating": 4.5,
+      "reviewsCount": 120,
+      "city": "Buenos Aires",
+      "id": 1,
+      "services": [
+        "Electricidad",
+        "Plomero",
+        "Carpinteria"
+      ],
+      "description": "Especialista en reparaciones eléctricas, plomería y carpintería con más de 10 años de experiencia en el mercado. Trabajo rápido y eficiente.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Excelente trabajo, muy profesional.",
+          "user": "Matías Gómez"
+        },
+        {
+          "id": 2,
+          "rating": 4,
+          "comment": "Muy buen servicio, aunque podría mejorar la puntualidad.",
+          "user": "Sofía Martínez"
+        },
+        {
+          "id": 3,
+          "rating": 4.5,
+          "comment": "Resolvió el problema rápido y de manera eficiente.",
+          "user": "Diego López"
+        }
+      ]
+    },
+    {
+      "name": "María",
+      "lastName": "Gonzalez",
+      "rating": 4.7,
+      "reviewsCount": 95,
+      "city": "Cordoba",
+      "id": 2,
+      "services": [
+        "Pintor",
+        "Decorador de interiores"
+      ],
+      "description": "Profesional en pintura y decoración de interiores, transformando espacios en ambientes únicos y acogedores. Detallista y creativo.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "El resultado final fue más de lo que esperaba. Excelente decoradora.",
+          "user": "Lucía Pereyra"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "Muy creativa y atenta a los detalles.",
+          "user": "Javier Méndez"
+        },
+        {
+          "id": 3,
+          "rating": 4,
+          "comment": "Buena experiencia, aunque el tiempo de entrega fue un poco largo.",
+          "user": "Carla Fernández"
+        }
+      ]
+    },
+    {
+      "name": "Carlos",
+      "lastName": "Fernandez",
+      "rating": 4.2,
+      "reviewsCount": 85,
+      "city": "Rosario",
+      "id": 3,
+      "services": [
+        "Albañil",
+        "Jardinero"
+      ],
+      "description": "Experto en construcción y jardinería, realizando trabajos desde cimientos hasta el mantenimiento de jardines. Atención al detalle y terminaciones impecables.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4,
+          "comment": "Buen trabajo, pero tardó más de lo esperado.",
+          "user": "Federico Rossi"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "El jardín quedó hermoso, gracias por tu dedicación.",
+          "user": "Ana Belén"
+        },
+        {
+          "id": 3,
+          "rating": 4,
+          "comment": "Satisfecho con el trabajo, aunque podría ser un poco más rápido.",
+          "user": "Tomás Pérez"
+        }
+      ]
+    },
+    {
+      "name": "Ana",
+      "lastName": "Lopez",
+      "rating": 4.9,
+      "reviewsCount": 150,
+      "city": "Buenos Aires",
+      "id": 4,
+      "services": [
+        "Electricidad",
+        "Gasista"
+      ],
+      "description": "Técnico certificado en instalaciones eléctricas y de gas. Garantizo seguridad y cumplimiento de todas las normativas vigentes.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Muy profesional y cuidadosa con los detalles.",
+          "user": "Elena Castro"
+        },
+        {
+          "id": 2,
+          "rating": 5,
+          "comment": "Excelente servicio, totalmente recomendable.",
+          "user": "Mario Suárez"
+        },
+        {
+          "id": 3,
+          "rating": 4.5,
+          "comment": "Buen trabajo, aunque algo costoso.",
+          "user": "Pablo García"
+        }
+      ]
+    },
+    {
+      "name": "Luis",
+      "lastName": "Martinez",
+      "rating": 3.8,
+      "reviewsCount": 60,
+      "city": "Mendoza",
+      "id": 5,
+      "services": [
+        "Plomero",
+        "Mecánico"
+      ],
+      "description": "Plomero y mecánico con una sólida trayectoria en la resolución de problemas complejos. Rapidez y eficacia en cada trabajo.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 4,
+          "comment": "Buen plomero, pero un poco desorganizado.",
+          "user": "María Vega"
+        },
+        {
+          "id": 2,
+          "rating": 3.5,
+          "comment": "El trabajo fue aceptable, pero podría mejorar.",
+          "user": "Juan Rivas"
+        },
+        {
+          "id": 3,
+          "rating": 4,
+          "comment": "Resolvió el problema, aunque tomó más tiempo de lo que esperaba.",
+          "user": "Florencia Navarro"
+        }
+      ]
+    },
+    {
+      "name": "Laura",
+      "lastName": "Rodriguez",
+      "rating": 4.3,
+      "reviewsCount": 110,
+      "city": "La Plata",
+      "id": 6,
+      "services": [
+        "Diseñador gráfico",
+        "Fotógrafo"
+      ],
+      "description": "Diseñador gráfico y fotógrafo, apasionado por capturar momentos únicos y crear diseños que transmitan la esencia de cada proyecto.",
+      "reviews": [
+        {
+          "id": 1,
+          "rating": 5,
+          "comment": "Las fotos quedaron espectaculares, gracias Laura.",
+          "user": "Nicolás Torres"
+        },
+        {
+          "id": 2,
+          "rating": 4.5,
+          "comment": "Muy buen trabajo de diseño, me encantó el resultado final.",
+          "user": "Camila Fernández"
+        },
+        {
+          "id": 3,
+          "rating": 4,
+          "comment": "Buen trabajo, aunque el proceso fue un poco largo.",
+          "user": "Lautaro Pérez"
+        }
+      ]
+    }
+  ]
+}

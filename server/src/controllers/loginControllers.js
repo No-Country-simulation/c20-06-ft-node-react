@@ -6,9 +6,7 @@ export async function loginUser(email, password) {
 
   if (!user)
     throw new Error(`Usuario no encontrado ${email} incorrecto`);
-
   const passwordMath = await bcrypt.compare(password, user.password);
-
   if (!passwordMath) throw new Error("Incorrect password");
   
   return user;

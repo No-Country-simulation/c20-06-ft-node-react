@@ -1,4 +1,5 @@
-import { CircleUserRound, PencilRuler } from "lucide-react"
+import { FaRegUserCircle } from "react-icons/fa"
+import { LuPencilRuler } from "react-icons/lu"
 import { usePathname } from "next/navigation"
 
 export const NavItemsProvider = () => {
@@ -14,13 +15,13 @@ export const NavItemsProvider = () => {
         {
             name: 'Servicios',
             href: `${path}/servicios`,
-            icon: <PencilRuler size={20}/>,
+            icon: <LuPencilRuler size={20}/>,
             active: isNavItemActive(pathName, '/servicios'),
         },
         {
             name: 'Cuenta',
             href: `${path}/cuenta`,
-            icon: <CircleUserRound size={20}/>,
+            icon: <FaRegUserCircle size={20}/>,
             active: isNavItemActive(pathName, '/cuenta'),
         },
     ]

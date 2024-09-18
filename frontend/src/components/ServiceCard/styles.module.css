@@ -1,19 +1,16 @@
 .card {
-
   width: 150px;
   height: 75px;
   border: 1px, solid, rgb(255, 255, 255);
   gap: 10px;
   border-radius: 15px;
-  background-color: #222121;
 }
 
 .card:hover {
   cursor: pointer;
-  background-color: #3a3a3a;
   transition: 0.5s;
   transform: scale(1.1);
-  box-shadow: 0 0 10px white;
+
 }
 
 .link {

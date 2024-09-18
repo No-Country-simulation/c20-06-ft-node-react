@@ -1,12 +1,22 @@
 import { NextResponse } from 'next/server';
+import { fetchAllData } from '@/utils/functions'
 
 export async function GET() {
-  const response = await fetch("http://localhost:3000/api/workers");
-  const { workers } = await response.json();
+  const { data, status, error } = await fetchAllData('http://localhost:3000/locations');
 
-  const uniqueCities = Array.from(new Set(workers.map(worker => worker.city))).map((city, index) => {
-    return { name: city, id: index };
-  });
+  if (error) {
+    console.log(error)
+    return NextResponse.json({ error }, { status: 500 });
+  }
 
-  return NextResponse.json({ cities: uniqueCities });
+  const uniqueCities = Array.from(
+    new Set(data.locations.map(city => city.localidad))
+  )
+    .map(localidad => {
+      return data.locations.find(city => city.localidad === localidad);
+    });
+
+  const cities = uniqueCities?.sort((a, b) => a.localidad.localeCompare(b.localidad));
+
+  return NextResponse.json({ cities }, { status });
 }

@@ -17,6 +17,12 @@
     font-size: 16px;
     padding: 5px;
     margin-bottom: 5px;
+
+    &:focus {
+        outline: none;
+        border: 2px solid var(--primary-color);
+
+    }
 }
 
 .dropDownInput p {

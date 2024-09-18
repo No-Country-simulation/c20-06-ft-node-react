@@ -7,14 +7,19 @@ import {
   deleteServiceHandler,
   generateServices
 } from "../handlers/servicesHandlers.js";
+import { VerifyToken } from "../middleware/jwtMiddleware.js";
+import { verifyRole } from '../middleware/roleMiddleware.js'
 
 const servicesRouter = express.Router();
 
-servicesRouter.post("/services", createServiceHandler);
-servicesRouter.post("/services/generateServices", generateServices); // crea los primeros servicios.
-servicesRouter.get("/services", getAllServicesHandler);
-servicesRouter.get("/services/:id", getServiceByIdHandler);
-servicesRouter.put("/services/:id", updateServiceHandler);
-servicesRouter.delete("/services/:id", deleteServiceHandler);
+servicesRouter.post("/", VerifyToken, verifyRole(['admin']), createServiceHandler);
+servicesRouter.post("/generateServices", generateServices); // crea los primeros servicios.
+
+// servicesRouter.get("/", VerifyToken ,verifyRole(['client', 'service_provider', 'admin']),getAllServicesHandler);
+servicesRouter.get("/", getAllServicesHandler);
+servicesRouter.get("/:id", VerifyToken, verifyRole(['admin', "client", "service_provider"]), getServiceByIdHandler);
+
+servicesRouter.put("/:id", VerifyToken, verifyRole(['admin']), updateServiceHandler);
+servicesRouter.delete("/:id", VerifyToken, verifyRole(['admin']), deleteServiceHandler);
 
 export default servicesRouter;

@@ -7,7 +7,7 @@ const page = () => {
     }}>
       <h1> Pagina de pruebas </h1>
 
-      {/* // * --- Probá tu componente abajo --- */}
+      { /* --- Probá tu componente abajo --- */}
 
     </div>
   )

@@ -1,0 +1,84 @@
+.container {
+    /* overflow-y: auto; */
+    /* height: 50vw; */
+}
+
+.infoWorker {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+}
+
+.infoWorker .info p {
+    display: flex;
+    align-items: center;
+}
+
+.info .name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.favorite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.favorite .buttonFavorite {
+    display: inline-flex;
+    padding: 6px 0px;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    width: 150px; /* Ajusta el ancho fijo a tu necesidad */
+}
+
+.buttonShadow {
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+.buttonBackground {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.icon {
+    font-size: 0.9rem;
+    margin-right: 4px;
+}
+
+.iconInfo {
+    font-size: 1.1rem;
+    margin-right: 4px;
+    color: var(--primary-color);
+}
+
+.descriptionWorker {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.contentImages {
+    min-height: 5rem;
+    display: flex;
+    overflow-y: auto;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.contentImages .image {
+    border-radius: 5px;
+}
+
+.coments {
+    margin: 10px 0;
+}

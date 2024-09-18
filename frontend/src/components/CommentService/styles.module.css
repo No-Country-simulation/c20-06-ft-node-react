@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    margin: 10px 0;
+    gap: 20px;
+}
+
+.comment {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.contentImages {
+    min-height: 5rem;
+    display: flex;
+    overflow-y: auto;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.contentImages .image {
+    border-radius: 5px;
+}

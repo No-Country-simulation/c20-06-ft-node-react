@@ -24,20 +24,26 @@ const useFetchData = (api) => {
   return data;
 };
 
-
 export const useFetchCategories = () => {
-  const data = useFetchData('/api/categories');
-  return data.categories
+  const { categories } = useFetchData('/api/categories');
+
+  return categories
 };
 
 export const useFetchWorkers = () => {
-  const data = useFetchData('/api/workers');
-  return data.workers
+  const { workers } = useFetchData('/api/workers');
+  
+  return workers
+}
+
+export const useFetchOneWorker = (id) => {
+  const data = useFetchData(`/api/workers/${id}`);
+  return data.worker
 }
 
 export const useFetchCities = () => {
-  const data = useFetchData('/api/cities');
-  return data.cities
+  const { cities } = useFetchData('/api/cities');
+  return cities
 }
 
 export const useFetchServices = () => {

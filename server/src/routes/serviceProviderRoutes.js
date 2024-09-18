@@ -1,15 +1,16 @@
 import { Router } from "express";
 import { getAll, createServiceProvider, getById, updatedServiceProvider, updatedActive, updatedRating, addService, removeService} from "../handlers/serviceProviderHandler.js";
+import { VerifyToken } from "../middleware/jwtMiddleware.js";
 
 export const serviceProviderRouter = Router();
 
-serviceProviderRouter.get("/", getAll);
+serviceProviderRouter.get("/",getAll);
 serviceProviderRouter.post("/", createServiceProvider);
-serviceProviderRouter.get("/:id", getById );
+serviceProviderRouter.get("/:id", VerifyToken,getById );
 
-serviceProviderRouter.put("/:id", updatedServiceProvider );
-serviceProviderRouter.put("/:id/active", updatedActive);
-serviceProviderRouter.put("/:id/rating", updatedRating);
+serviceProviderRouter.put("/:id", VerifyToken ,updatedServiceProvider );
+serviceProviderRouter.put("/:id/active", VerifyToken ,updatedActive);
+serviceProviderRouter.put("/:id/rating", VerifyToken ,updatedRating);
 
-serviceProviderRouter.put("/:id/addService/:idService", addService);
-serviceProviderRouter.put("/:id/removeService/:idService", removeService);
+serviceProviderRouter.put("/:id/addService/:idService",VerifyToken ,addService);
+serviceProviderRouter.put("/:id/removeService/:idService", VerifyToken,removeService);

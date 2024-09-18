@@ -1,7 +1,7 @@
 import { DropDownInput, Modal, TextAreaInput, ImageInput } from "@/components"
 import styles from "./styles.module.css"
 
-const EditReadNewService = (props) => {
+const EditReadNewServiceModal = (props) => {
   
   return (
     <Modal
@@ -42,4 +42,4 @@ const EditReadNewService = (props) => {
   )
 }
 
-export default EditReadNewService
+export default EditReadNewServiceModal

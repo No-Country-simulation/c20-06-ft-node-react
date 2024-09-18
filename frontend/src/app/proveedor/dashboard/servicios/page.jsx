@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import styles from "./page.module.css"
-import EditReadNewService from "./ui/EditReadNewService"; 
+import EditReadNewServiceModal from "./ui/EditReadNewServiceModal"; 
 
 const Servicios = () => {
   const [isClosedModal, setClosedModal] = useState(true);
@@ -10,7 +10,7 @@ const Servicios = () => {
 
   return (
     <div className={styles.container}>
-      <EditReadNewService 
+      <EditReadNewServiceModal 
         isClosedModal={isClosedModal}
         setClosedModal={setClosedModal}
       />

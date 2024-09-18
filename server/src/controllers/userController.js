@@ -1,8 +1,9 @@
+import { Location } from "../models/Locations.js";
 import { User } from "../models/User.js"
 
 export async function getUsers(){
     try {
-        const data = await User.findAll();
+        const data = await User.findAll({include : [{model : Location, as : "locations"}]});
         return data
     } catch (error) {
         console.log(error.message);
@@ -12,7 +13,7 @@ export async function getUsers(){
 
 export async function getUserById(id) {
     try {
-        const user = await User.findByPk(id);
+        const user = await User.findByPk(id, {include : [{model : Location, as : "locations"}]});
         if (!user) {
             throw new Error("User not found");
         }

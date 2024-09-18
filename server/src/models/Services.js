@@ -42,7 +42,8 @@ export const Service = sequelize.define(
     // freezeTableName: true,
   }
 );
-Service.belongsToMany(Category, { through: 'ServiceCategory', as: 'categories', foreignKey: 'serviceId'
+Service.belongsToMany(Category, {
+  through: 'ServiceCategory', as: 'categories', foreignKey: 'serviceId'
 });
 Category.belongsToMany(Service, { through: 'ServiceCategory', as: 'services', foreignKey: 'categoryId' });
 
