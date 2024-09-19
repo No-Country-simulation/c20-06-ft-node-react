@@ -6,8 +6,7 @@ export async function POST(req) {
   console.log('body', body)
 
   return NextResponse.json({
-    status: 201,
     message: 'Usuario creado',
     email: body.email
-  })
+  }, { status: 201 })
 }

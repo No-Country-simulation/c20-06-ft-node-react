@@ -7,11 +7,36 @@ import styles from './styles.module.css'
 
 const Step1 = ({ rol, setRol, onNext }) => {
   return (
-    <LoginStepOne
-      rol={rol}
-      setRol={setRol}
-      onNext={onNext}
-    />
+    <LoginLayout className={styles.login}>
+      <LoginStepOne
+        rol={rol}
+        setRol={setRol}
+        onNext={onNext}
+      />
+    </LoginLayout>
+  )
+}
+
+const Step2 = ({ rol, onNext, handleSubmit, form, handleChange, error, message }) => {
+  return (
+    <>
+      <h3 className={styles.title}>Crear cuenta</h3>
+      <LoginLayout className={styles.login}>
+        <form onSubmit={rol ? handleSubmit : onNext} className={styles.form}>
+          Ingresa tu correo:
+          <TextInput className={styles.input} type="email" required={true} onChange={handleChange} name="email" value={form.email} placeholder="Email" error={error} />
+          {message && <p className={styles.message}>{message}</p>}
+          Ingresa tu contraseña:
+          <TextInput className={styles.input} type="password" required={true} onChange={handleChange} name="password" value={form.password} placeholder="Contraseña" error={error} />
+          <Button type='button' className={styles.button} onClick={rol === 'service_provider' ? onNext : handleSubmit}>Crear cuenta</Button>
+        </form>
+        <div className={styles.divider}>
+          <span>o usar Google</span>
+        </div>
+
+        <Button className={`${styles.button} ${styles.notAllowed}`}>Crear cuenta con Google</Button>
+      </LoginLayout>
+    </>
   )
 }
 
@@ -65,33 +90,34 @@ const Page = () => {
     })
   }
 
-  return (
-    <div className={styles.container}>
-      {step === 1 && <Step1 rol={rol} setRol={setRol} onNext={handleNext} />}
-      {step === 2 && (
-        <>
-          <h3 className={styles.title}>Crear cuenta</h3>
-          <LoginLayout className={styles.login}>
-            Usar correo
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <TextInput className={styles.input} type="email" required={true} onChange={handleChange} name="email" value={form.email} placeholder="Email" error={error} />
-              {message && <p className={styles.message}>{message}</p>}
+  if (step === 1) {
+    return (
+      <div className={styles.container}>
+        <Step1 rol={rol} setRol={setRol} onNext={handleNext} />
+      </div>
+    )
+  }
 
-              <TextInput className={styles.input} type="password" required={true} onChange={handleChange} name="password" value={form.password} placeholder="Contraseña" error={error} />
-              <Button className={styles.button}>Crear cuenta</Button>
-            </form>
-            <div className={styles.divider}>
-              <span>o usar Google</span>
-            </div>
 
-            <Button className={styles.button}>Crear cuenta con Google</Button>
-          </LoginLayout>
-        </>
-      )
-      }
+  if (step === 2) {
+    return (
+      <div className={styles.container}>
+        <Step2 onNext={handleNext} onSubmit={handleSubmit} form={form} setForm={setForm} handleChange={handleChange} error={error} message={message} />
+      </div>
+    )
+  }
 
-    </div>
-  )
+  if (step === 3 && rol === 'service_provider') {
+    return (
+      <div className={styles.container}>
+        <LoginLayout className={styles.login}>
+          <h3 className={styles.title}>¡Un ultimo paso!</h3>
+
+          <Button className={styles.button} onClick={() => setStep(1)}>Iniciar sesión</Button>
+        </LoginLayout>
+      </div>
+    )
+  }
 }
 
 export default Page

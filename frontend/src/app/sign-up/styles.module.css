@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   border: 1px solid var(--text-color);
   box-shadow: 0 0 10px var(--text-color);
@@ -79,4 +79,8 @@
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.notAllowed {
+  cursor: not-allowed !important;
 }

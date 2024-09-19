@@ -6,6 +6,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState(null);
+  const [user, setUser] = useState({ username: '', id: '', role: '' });
 
   useEffect(() => {
     const token = Cookies.get('authToken');
@@ -14,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const logIn = (token) => {
+  const logIn = (token, user) => {
     Cookies.set('authToken', token, {
       expires: 7,
       path: '/',
@@ -22,6 +23,7 @@ export const AuthProvider = ({ children }) => {
       sameSite: 'Strict'
     });
     setAuthToken(token);
+    setUser({ username: `${user.first_name} ${user.last_Name}`, id: user.id, role: user.role });
   };
 
   const logOut = () => {
@@ -30,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ authToken, logIn, logOut, isLoggedIn: !!authToken }}>
+    <AuthContext.Provider value={{ authToken, user, logIn, logOut, isLoggedIn: !!authToken }}>
       {children}
     </AuthContext.Provider>
   );
