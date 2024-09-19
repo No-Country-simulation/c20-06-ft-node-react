@@ -6,7 +6,7 @@ import { verifyOwnerAccount, verifyRole } from "../middleware/roleMiddleware.js"
 const userRouter = Router();
 
 
-userRouter.get("/", VerifyToken,verifyRole(['admin', 'client']),getAllUsers);
+userRouter.get("/",getAllUsers);
 userRouter.get("/:id",VerifyToken,verifyRole(['client', 'service_provider', 'admin']),verifyOwnerAccount,getUser);
 // userRouter.post("/", createUser);
 userRouter.put("/:id", VerifyToken,verifyRole(['client', 'service_provider', 'admin']),verifyOwnerAccount,updateUser);
