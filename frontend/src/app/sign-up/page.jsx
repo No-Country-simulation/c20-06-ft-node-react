@@ -5,9 +5,10 @@ import { LoginLayout, Button, TextInput, LoginStepOne } from "@/components"
 import { validateEmail } from '@/utils/functions'
 import styles from './styles.module.css'
 
-const Step1 = ({ setRol, onNext }) => {
+const Step1 = ({ rol, setRol, onNext }) => {
   return (
     <LoginStepOne
+      rol={rol}
       setRol={setRol}
       onNext={onNext}
     />
@@ -66,7 +67,7 @@ const Page = () => {
 
   return (
     <div className={styles.container}>
-      {step === 1 && <Step1 setRol={setRol} onNext={handleNext} />}
+      {step === 1 && <Step1 rol={rol} setRol={setRol} onNext={handleNext} />}
       {step === 2 && (
         <>
           <h3 className={styles.title}>Crear cuenta</h3>
@@ -75,6 +76,8 @@ const Page = () => {
             <form onSubmit={handleSubmit} className={styles.form}>
               <TextInput className={styles.input} type="email" required={true} onChange={handleChange} name="email" value={form.email} placeholder="Email" error={error} />
               {message && <p className={styles.message}>{message}</p>}
+
+              <TextInput className={styles.input} type="password" required={true} onChange={handleChange} name="password" value={form.password} placeholder="Contraseña" error={error} />
               <Button className={styles.button}>Crear cuenta</Button>
             </form>
             <div className={styles.divider}>

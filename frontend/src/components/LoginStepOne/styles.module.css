@@ -1,0 +1,56 @@
+.rol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.option {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+  transition: border-color 0.3s;
+}
+
+.selected {
+  border-color: var(--primary-color);
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: white;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+}
