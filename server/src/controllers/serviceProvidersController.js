@@ -6,24 +6,6 @@ import { ServiceProvider } from "./../models/ServiceProviders.js";
 
 
 export async function getAllServiceProviders() {
-<<<<<<< Updated upstream
-    try {
-        const data = await ServiceProvider.findAll({include : [ 
-                {
-                    model : User, 
-                    attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role'], 
-                    include : [{model : Location, as: 'locations', attributes :['localidad', 'provincia']}]
-                },
-                {model : Service, as : 'services', include : [{ model: Category,  as: 'categories', attributes: ['id', 'name']}]},
-                
-            ]
-        })
-        return data
-    } catch (error) {
-        console.log(error);
-        throw new Error (" Error getting service providers")
-    }
-=======
   try {
     const data = await ServiceProvider.findAll({
       include: [
@@ -41,7 +23,6 @@ export async function getAllServiceProviders() {
     console.log(error);
     throw new Error(" Error getting service providers")
   }
->>>>>>> Stashed changes
 }
 
 export async function createNewServiceProvider(userId, profileDescription, profilePicture, serviceIds) {
@@ -63,18 +44,6 @@ export async function createNewServiceProvider(userId, profileDescription, profi
 }
 
 export async function getServiceProviderById(id) {
-<<<<<<< Updated upstream
-    try {
-        const data = await ServiceProvider.findByPk(id, {include : [ 
-            {
-                model : User, 
-                attributes : ['id', 'email', 'last_name', "first_name", "phone_number",'role'], 
-                include : [{model : Location, as: 'locations', attributes :['localidad', 'provincia']}]
-            },
-            {model : Service, as : 'services', include : [{ model: Category,  as: 'categories', attributes: ['id', 'name']}]},
-            
-        ]
-=======
   try {
     const data = await ServiceProvider.findByPk(id, {
       include: [
@@ -86,7 +55,6 @@ export async function getServiceProviderById(id) {
         { model: Service, as: 'services', include: [{ model: Category, as: 'categories', attributes: ['id', 'name'] }] },
 
       ]
->>>>>>> Stashed changes
     });
     return data
   } catch (error) {
