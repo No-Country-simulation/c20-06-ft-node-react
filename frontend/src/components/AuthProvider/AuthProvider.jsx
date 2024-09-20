@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       sameSite: 'Strict'
     });
     setAuthToken(token);
-    setUser({ username: `${user.first_name} ${user.last_Name}`, id: user.id, role: user.role });
+    setUser({ username: `${user.first_name} ${user.last_Name}`, id: user.serviceProviderId, role: user.role });
   };
 
   const logOut = () => {
