@@ -31,6 +31,10 @@
 .content {
     flex: 2;
     display: flex;
+    gap: 20px;
+}
+
+.contentCenter {
     align-items: center;
     justify-content: center;
 }

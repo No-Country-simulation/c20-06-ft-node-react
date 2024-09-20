@@ -31,22 +31,26 @@ const SignIn = () => {
     setMessage('')
 
     try {
-      const res = await fetch('/api/sign-in', {
+      const res = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify(form)
+      }).then((res)=>{
+        const data = res.json().then((data)=>{
+          logIn('abc',data)
+          localStorage.setItem('user', JSON.stringify(data))
+          console.log(data,'---')
+          router.push('/')
+        })
       })
 
-      const data = await res.json()
-
-      setMessage(data.message)
-
-      if (data.status === 200) {
-        logIn(data.token)
-        router.push('/')
-      }
+      
+      // setMessage(data.message)
+      // if (data.status === 200) {
+      // }
 
     } catch (error) {
       setError(true)
