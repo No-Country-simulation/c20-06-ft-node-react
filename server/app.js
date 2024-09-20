@@ -5,8 +5,13 @@ import router from "./src/routes/index.js";
 
 import cookieParser from "cookie-parser";
 
+const corsOptions = {
+    origin: 'http://localhost:4000',
+    credentials: true,
+  };
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 // app.use(morgan("dev"));
